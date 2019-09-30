@@ -1,0 +1,136 @@
+From 5832b4af2d049beec76ecd4513d5333d4a76cd91 Mon Sep 17 00:00:00 2001
+From: hejingxian <hejingxian@huawei.com>
+Date: Tue, 4 Sep 2019 15:19:46 +0800
+Subject: [PATCH] Remove country select operation from tzselect steps.
+
+For political reasons, avoid selecting country in tzselect.
+---
+ tzselect.ksh | 90 +++++++++++-------------------------------------------------
+ 1 file changed, 16 insertions(+), 74 deletions(-)
+
+diff --git a/tzselect.ksh b/tzselect.ksh
+index 18fce27..65fef55 100644
+--- a/tzselect.ksh
++++ b/tzselect.ksh
+@@ -51,7 +51,7 @@ say() {
+ 
+ coord=
+ location_limit=10
+-zonetabtype=zone1970
++zonetabtype=zone
+ 
+ usage="Usage: tzselect [--version] [--help] [-c COORD] [-n LIMIT]
+ Select a timezone interactively.
+@@ -398,94 +398,36 @@ while
+ 		    '`
+ 		    ;;
+ 		*)
+-		# Get list of names of countries in the continent or ocean.
+-		countries=`$AWK \
++		# Get list of names of timezones in the continent or ocean.
++		tmp_timezones=`$AWK \
+ 			-v continent="$continent" \
+-			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
+ 		'
+ 			BEGIN { FS = "\t" }
+ 			/^#/ { next }
+ 			$3 ~ ("^" continent "/") {
+-			    ncc = split($1, cc, /,/)
++			    ncc = split($3, cc, /,/)
+ 			    for (i = 1; i <= ncc; i++)
+ 				if (!cc_seen[cc[i]]++) cc_list[++ccs] = cc[i]
+ 			}
+ 			END {
+-				while (getline <TZ_COUNTRY_TABLE) {
+-					if ($0 !~ /^#/) cc_name[$1] = $2
+-				}
+ 				for (i = 1; i <= ccs; i++) {
+-					country = cc_list[i]
+-					if (cc_name[country]) {
+-					  country = cc_name[country]
+-					}
+-					print country
++					print cc_list[i]
+ 				}
+ 			}
+ 		' <"$TZ_ZONE_TABLE" | sort -f`
+ 
++		timezones=[]
++		index=0
++		for item in  $tmp_timezones; do
++			timezones[$index]=`echo $item | awk  -F '/'  '{print $2}'`
++			index=$(($index+1))
++		done
+ 
+-		# If there's more than one country, ask the user which one.
+-		case $countries in
+-		*"$newline"*)
+-			echo >&2 'Please select a country' \
+-				'whose clocks agree with yours.'
+-			doselect $countries
+-			country=$select_result;;
+-		*)
+-			country=$countries
+-		esac
+-
+-
+-		# Get list of timezones in the country.
+-		regions=`$AWK \
+-			-v country="$country" \
+-			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
+-		'
+-			BEGIN {
+-				FS = "\t"
+-				cc = country
+-				while (getline <TZ_COUNTRY_TABLE) {
+-					if ($0 !~ /^#/  &&  country == $2) {
+-						cc = $1
+-						break
+-					}
+-				}
+-			}
+-			/^#/ { next }
+-			$1 ~ cc { print $4 }
+-		' <"$TZ_ZONE_TABLE"`
+-
+-
+-		# If there's more than one region, ask the user which one.
+-		case $regions in
+-		*"$newline"*)
+-			echo >&2 'Please select one of the following timezones.'
+-			doselect $regions
+-			region=$select_result;;
+-		*)
+-			region=$regions
+-		esac
+-
+-		# Determine TZ from country and region.
+-		TZ=`$AWK \
+-			-v country="$country" \
+-			-v region="$region" \
+-			-v TZ_COUNTRY_TABLE="$TZ_COUNTRY_TABLE" \
+-		'
+-			BEGIN {
+-				FS = "\t"
+-				cc = country
+-				while (getline <TZ_COUNTRY_TABLE) {
+-					if ($0 !~ /^#/  &&  country == $2) {
+-						cc = $1
+-						break
+-					}
+-				}
+-			}
+-			/^#/ { next }
+-			$1 ~ cc && $4 == region { print $3 }
+-		' <"$TZ_ZONE_TABLE"`
++		echo >&2 'Please select a timezone' \
++		'whose clocks agree with yours.'
++		doselect ${timezones[@]}
++		timezone=$select_result
++		TZ=$continent/$timezone
+ 		esac
+ 
+ 		# Make sure the corresponding zoneinfo file exists.
+-- 
+1.8.3.1
+
