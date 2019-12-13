@@ -1,0 +1,245 @@
+From e665205e9b11d10e6805b0c4e9c58f726ecd9ccd Mon Sep 17 00:00:00 2001
+From: liuchao <liuchao173@huawei.com>
+Date: Wed, 4 Dec 2019 10:56:22 +0800
+Subject: [PATCH] rename Macau to Macao
+ Aomen should be spelled in English as Macao
+
+---
+ NEWS         | 10 ++++----
+ asia         | 70 ++++++++++++++++++++++++++--------------------------
+ backward     |  1 -
+ iso3166.tab  |  2 +-
+ tz-link.html |  4 +--
+ zishrink.awk |  2 +-
+ zone.tab     |  2 +-
+ zone1970.tab |  2 +-
+ 8 files changed, 46 insertions(+), 47 deletions(-)
+
+diff --git a/NEWS b/NEWS
+index 8b05f8f..0f386df 100644
+--- a/NEWS
++++ b/NEWS
+@@ -297,9 +297,9 @@ Release 2018f - 2018-10-18 00:14:18 -0700
+     April 10.  Its DST transitions in 1986/91 were at 02:00, not 00:00.
+     (Thanks to P Chan.)
+ 
+-    Fix several issues for Macau before 1992.  Macau's pre-1904 LMT
+-    was off by 10 s.  Macau switched to +08 in 1904 not 1912, and
+-    temporarily switched to +09/+10 during World War II.  Macau
++    Fix several issues for Macao before 1992.  Macao's pre-1904 LMT
++    was off by 10 s.  Macao switched to +08 in 1904 not 1912, and
++    temporarily switched to +09/+10 during World War II.  Macao
+     observed DST in 1942/79, not 1961/80, and there were several
+     errors for transition times and dates.  (Thanks to P Chan.)
+ 
+@@ -504,7 +504,7 @@ Release 2018d - 2018-03-22 07:05:46 -0700
+     This transition was at 00:00 according to the new UT offset, not
+     according to the old one.  Also assume that Cape Verde switched on
+     the same date as the rest, not in 1907.  This affects
+-    Africa/Bissau, Africa/Sao_Tome, Asia/Macau, Atlantic/Azores,
++    Africa/Bissau, Africa/Sao_Tome, Asia/Macao, Atlantic/Azores,
+     Atlantic/Cape_Verde, Atlantic/Madeira, and Europe/Lisbon.
+     (Thanks to Michael Deckers.)
+ 
+@@ -994,7 +994,7 @@ Release 2017a - 2017-02-28 00:05:36 -0800
+     (Atlantic Standard Time had not been standardized yet).  Use "AWT"
+     and "APT" instead of the invented abbreviations "CAWT" and "CAPT".
+ 
+-    Use "CST" and "CDT" instead of invented abbreviations for Macau
++    Use "CST" and "CDT" instead of invented abbreviations for Macao
+     before 1999 and Taiwan before 1938, and use "JST" instead of the
+     invented abbreviation "JCST" for Japan and Korea before 1938.
+ 
+diff --git a/asia b/asia
+index 348e2b5..7579a13 100644
+--- a/asia
++++ b/asia
+@@ -886,12 +886,12 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
+ 			9:00	-	JST	1945 Sep 21  1:00
+ 			8:00	Taiwan	C%sT
+ 
+-# Macau (Macao, Aomen)
++# Macao (Aomen)
+ #
+ # From P Chan (2018-05-10):
+ # * LegisMac
+ #   http://legismac.safp.gov.mo/legismac/descqry/Descqry.jsf?lang=pt
+-#   A database for searching titles of legal documents of Macau in
++#   A database for searching titles of legal documents of Macao in
+ #   Chinese and Portuguese.  The term "HORÁRIO DE VERÃO" can be used for
+ #   searching decrees about summer time.
+ # * Archives of Macao
+@@ -900,13 +900,13 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
+ # * The Macao Meteorological and Geophysical Bureau have a page listing the
+ #   summer time history.  But it is not complete and has some mistakes.
+ #   http://www.smg.gov.mo/smg/geophysics/e_t_Summer%20Time.htm
+-# Macau adopted GMT+8 on 30 Oct 1904 to follow Hong Kong.  Clocks were
++# Macao adopted GMT+8 on 30 Oct 1904 to follow Hong Kong.  Clocks were
+ # advanced by 25 minutes and 50 seconds.  Which means the LMT used was
+ # +7:34:10.  As stated in the "Portaria No. 204" dated 21 October 1904
+ # and published in the Official Gazette on 29 October 1904.
+ # http://igallery.icm.gov.mo/Images/Archives/BO/MO_AH_PUB_BO_1904_10/MO_AH_PUB_BO_1904_10_00025_Grey.JPG
+ #
+-# Therefore the 1911 decree of Portugal did not change time in Macau.
++# Therefore the 1911 decree of Portugal did not change time in Macao.
+ #
+ # From LegisMac, here is a list of decrees that changed the time ...
+ # [Decree Gazette-no. date; titles omitted in this quotation]
+@@ -985,43 +985,43 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
+ # between GMT+9 and GMT+10.  Also in 1965 and 1965 the DST ended at 2:30am.
+ 
+ # From Paul Eggert (2018-05-10):
+-# The 1904 decree says that Macau changed from the meridian of
++# The 1904 decree says that Macao changed from the meridian of
+ # Fortaleza do Monte, presumably the basis for the 7:34:10 for LMT.
+ 
+ # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+-Rule	Macau	1942	1943	-	Apr	30	23:00	1:00	-
+-Rule	Macau	1942	only	-	Nov	17	23:00	0	-
+-Rule	Macau	1943	only	-	Sep	30	23:00	0	S
+-Rule	Macau	1946	only	-	Apr	30	23:00s	1:00	D
+-Rule	Macau	1946	only	-	Sep	30	23:00s	0	S
+-Rule	Macau	1947	only	-	Apr	19	23:00s	1:00	D
+-Rule	Macau	1947	only	-	Nov	30	23:00s	0	S
+-Rule	Macau	1948	only	-	May	 2	23:00s	1:00	D
+-Rule	Macau	1948	only	-	Oct	31	23:00s	0	S
+-Rule	Macau	1949	1950	-	Apr	Sat>=1	23:00s	1:00	D
+-Rule	Macau	1949	1950	-	Oct	lastSat	23:00s	0	S
+-Rule	Macau	1951	only	-	Mar	31	23:00s	1:00	D
+-Rule	Macau	1951	only	-	Oct	28	23:00s	0	S
+-Rule	Macau	1952	1953	-	Apr	Sat>=1	23:00s	1:00	D
+-Rule	Macau	1952	only	-	Nov	 1	23:00s	0	S
+-Rule	Macau	1953	1954	-	Oct	lastSat	23:00s	0	S
+-Rule	Macau	1954	1956	-	Mar	Sat>=17	23:00s	1:00	D
+-Rule	Macau	1955	only	-	Nov	 5	23:00s	0	S
+-Rule	Macau	1956	1964	-	Nov	Sun>=1	03:30	0	S
+-Rule	Macau	1957	1964	-	Mar	Sun>=18	03:30	1:00	D
+-Rule	Macau	1965	1973	-	Apr	Sun>=16	03:30	1:00	D
+-Rule	Macau	1965	1966	-	Oct	Sun>=16	02:30	0	S
+-Rule	Macau	1967	1976	-	Oct	Sun>=16	03:30	0	S
+-Rule	Macau	1973	only	-	Dec	30	03:30	1:00	D
+-Rule	Macau	1975	1976	-	Apr	Sun>=16	03:30	1:00	D
+-Rule	Macau	1979	only	-	May	13	03:30	1:00	D
+-Rule	Macau	1979	only	-	Oct	Sun>=16	03:30	0	S
++Rule	Macao	1942	1943	-	Apr	30	23:00	1:00	-
++Rule	Macao	1942	only	-	Nov	17	23:00	0	-
++Rule	Macao	1943	only	-	Sep	30	23:00	0	S
++Rule	Macao	1946	only	-	Apr	30	23:00s	1:00	D
++Rule	Macao	1946	only	-	Sep	30	23:00s	0	S
++Rule	Macao	1947	only	-	Apr	19	23:00s	1:00	D
++Rule	Macao	1947	only	-	Nov	30	23:00s	0	S
++Rule	Macao	1948	only	-	May	 2	23:00s	1:00	D
++Rule	Macao	1948	only	-	Oct	31	23:00s	0	S
++Rule	Macao	1949	1950	-	Apr	Sat>=1	23:00s	1:00	D
++Rule	Macao	1949	1950	-	Oct	lastSat	23:00s	0	S
++Rule	Macao	1951	only	-	Mar	31	23:00s	1:00	D
++Rule	Macao	1951	only	-	Oct	28	23:00s	0	S
++Rule	Macao	1952	1953	-	Apr	Sat>=1	23:00s	1:00	D
++Rule	Macao	1952	only	-	Nov	 1	23:00s	0	S
++Rule	Macao	1953	1954	-	Oct	lastSat	23:00s	0	S
++Rule	Macao	1954	1956	-	Mar	Sat>=17	23:00s	1:00	D
++Rule	Macao	1955	only	-	Nov	 5	23:00s	0	S
++Rule	Macao	1956	1964	-	Nov	Sun>=1	03:30	0	S
++Rule	Macao	1957	1964	-	Mar	Sun>=18	03:30	1:00	D
++Rule	Macao	1965	1973	-	Apr	Sun>=16	03:30	1:00	D
++Rule	Macao	1965	1966	-	Oct	Sun>=16	02:30	0	S
++Rule	Macao	1967	1976	-	Oct	Sun>=16	03:30	0	S
++Rule	Macao	1973	only	-	Dec	30	03:30	1:00	D
++Rule	Macao	1975	1976	-	Apr	Sun>=16	03:30	1:00	D
++Rule	Macao	1979	only	-	May	13	03:30	1:00	D
++Rule	Macao	1979	only	-	Oct	Sun>=16	03:30	0	S
+ 
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+-Zone	Asia/Macau	7:34:10 -	LMT	1904 Oct 30
++Zone	Asia/Macao	7:34:10 -	LMT	1904 Oct 30
+ 			8:00	-	CST	1941 Dec 21 23:00
+-			9:00	Macau	+09/+10	1945 Sep 30 24:00
+-			8:00	Macau	C%sT
++			9:00	Macao	+09/+10	1945 Sep 30 24:00
++			8:00	Macao	C%sT
+ 
+ 
+ ###############################################################################
+diff --git a/backward b/backward
+index b4ae3cf..71a79e2 100644
+--- a/backward
++++ b/backward
+@@ -37,7 +37,6 @@ Link	Asia/Dhaka		Asia/Dacca
+ Link	Asia/Shanghai		Asia/Harbin
+ Link	Asia/Urumqi		Asia/Kashgar
+ Link	Asia/Kathmandu		Asia/Katmandu
+-Link	Asia/Macau		Asia/Macao
+ Link	Asia/Yangon		Asia/Rangoon
+ Link	Asia/Ho_Chi_Minh	Asia/Saigon
+ Link	Asia/Jerusalem		Asia/Tel_Aviv
+diff --git a/iso3166.tab b/iso3166.tab
+index a4ff61a..1c53cc0 100644
+--- a/iso3166.tab
++++ b/iso3166.tab
+@@ -170,7 +170,7 @@ MK	North Macedonia
+ ML	Mali
+ MM	Myanmar (Burma)
+ MN	Mongolia
+-MO	Macau
++MO	Macao
+ MP	Northern Mariana Islands
+ MQ	Martinique
+ MR	Mauritania
+diff --git a/tz-link.html b/tz-link.html
+index 85fc001..538c1d1 100644
+--- a/tz-link.html
++++ b/tz-link.html
+@@ -814,9 +814,9 @@ Chile's official time (in Spanish)</a>.</dd>
+ <dd>The Hong Kong Observatory maintains a
+ <a href="https://www.hko.gov.hk/gts/time/Summertime.htm">history of
+  summer time in Hong Kong</a>,
+-and Macau's Meteorological and Geophysical Bureau maintains a <a
++and Macao's Meteorological and Geophysical Bureau maintains a <a
+ href="http://www.smg.gov.mo/smg/geophysics/e_t_Summer%20Time.htm">similar
+-history for Macau</a>.
++history for Macao</a>.
+ Unfortunately the latter is incomplete and has errors.</dd>
+ <dt>Czech Republic</dt>
+ <dd><a href="https://kalendar.beda.cz/kdy-zacina-a-konci-letni-cas"
+diff --git a/zishrink.awk b/zishrink.awk
+index 4e187ac..a41382c 100644
+--- a/zishrink.awk
++++ b/zishrink.awk
+@@ -94,7 +94,7 @@ function prehash_rule_names( \
+   rule["Chile"] = "x" # arbitrary
+   rule["Para"] = "y" # country code PY
+   rule["Romania"] = "z" # arbitrary
+-  rule["Macau"] = "_" # arbitrary
++  rule["Macao"] = "_" # arbitrary
+ 
+   # Use ISO 3166 alpha-2 country codes for remaining names that are countries.
+   # This is more systematic, and avoids collisions (e.g., Malta and Moldova).
+diff --git a/zone.tab b/zone.tab
+index 408fcb2..ee58572 100644
+--- a/zone.tab
++++ b/zone.tab
+@@ -269,7 +269,7 @@ MM	+1647+09610	Asia/Yangon
+ MN	+4755+10653	Asia/Ulaanbaatar	Mongolia (most areas)
+ MN	+4801+09139	Asia/Hovd	Bayan-Olgiy, Govi-Altai, Hovd, Uvs, Zavkhan
+ MN	+4804+11430	Asia/Choibalsan	Dornod, Sukhbaatar
+-MO	+221150+1133230	Asia/Macau
++MO	+221150+1133230	Asia/Macao
+ MP	+1512+14545	Pacific/Saipan
+ MQ	+1436-06105	America/Martinique
+ MR	+1806-01557	Africa/Nouakchott
+diff --git a/zone1970.tab b/zone1970.tab
+index 822ffa1..03ec66b 100644
+--- a/zone1970.tab
++++ b/zone1970.tab
+@@ -232,7 +232,7 @@ MM	+1647+09610	Asia/Yangon
+ MN	+4755+10653	Asia/Ulaanbaatar	Mongolia (most areas)
+ MN	+4801+09139	Asia/Hovd	Bayan-Ölgii, Govi-Altai, Hovd, Uvs, Zavkhan
+ MN	+4804+11430	Asia/Choibalsan	Dornod, Sükhbaatar
+-MO	+221150+1133230	Asia/Macau
++MO	+221150+1133230	Asia/Macao
+ MQ	+1436-06105	America/Martinique
+ MT	+3554+01431	Europe/Malta
+ MU	-2010+05730	Indian/Mauritius
+-- 
+2.19.1
+

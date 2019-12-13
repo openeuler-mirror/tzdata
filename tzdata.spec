@@ -1,6 +1,6 @@
 Name:           tzdata
 Version:        2019b
-Release:        5
+Release:        6
 Summary:        Timezone data
 License:        Public Domain
 URL:            https://www.iana.org/time-zones
@@ -29,6 +29,8 @@ Patch104:       7133138.patch
 
 Patch9000:      bugfix-0001-add-Beijing-timezone.patch
 Patch9001:      remove-country-selection-from-tzselect-steps.patch
+Patch9002:	remove-ROC-timezone.patch
+Patch9003:	rename-Macau-to-Macao.patch
 
 %description java
 This package contains timezone information for use by Java runtimes.
@@ -37,6 +39,10 @@ This package contains timezone information for use by Java runtimes.
 %setup -q -c -a 1
 
 %patch002 -p1
+%patch9000 -p1
+%patch9001 -p1
+%patch9002 -p1
+%patch9003 -p1
 
 make VERSION=%{version} tzdata%{version}-rearguard.tar.gz
 tar zxf tzdata%{version}-rearguard.tar.gz
@@ -60,9 +66,6 @@ cd ..
 tar xf %{SOURCE4}
 
 echo "%{name}%{version}" >> VERSION
-
-%patch9000 -p1
-%patch9001 -p1
 
 %build
 make VERSION=%{version} DATAFORM=rearguard tzdata.zi
@@ -115,6 +118,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Dec 4 2019 liuchao<liuchao173@huawei.com> - 2019b-6
+- Type:recommended
+- ID:NA
+- SUG:NA
+- DESC:remove ROC timezone and rename Macau to Macao
+
 * Mon Sep 23 2019 liuchao<liuchao173@huawei.com> -2019b-5
 - Type:bugfix
 - ID:NA
