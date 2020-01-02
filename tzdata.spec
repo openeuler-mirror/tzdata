@@ -118,7 +118,7 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
-* Thu Jan 2 2019 liuchao<liuchao173@huawei.com> - 2019b-7
+* Thu Jan 2 2020 liuchao<liuchao173@huawei.com> - 2019b-7
 - Type:bugfix
 - ID:NA
 - SUG:NA
