@@ -40,9 +40,11 @@ This package contains timezone information for use by Java runtimes.
 %setup -q -c -a 1
 
 %patch002 -p1
+
 %patch6000 -p1
 %patch6001 -p1
 %patch6002 -p1
+
 %patch9000 -p1
 %patch9001 -p1
 %patch9002 -p1
@@ -55,6 +57,7 @@ rm tzdata.zi
 mkdir javazic
 tar zxf %{SOURCE3} -C javazic
 cd javazic
+
 %patch100
 
 mv sun rht
