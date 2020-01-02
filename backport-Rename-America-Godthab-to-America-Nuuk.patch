@@ -1,0 +1,99 @@
+From d7715ab774d8ffdf6b745a8758f392617890c676 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Tue, 19 Nov 2019 15:16:16 -0800
+Subject: [PATCH 1/2] Rename America/Godthab to America/Nuuk
+
+* NEWS: Mention this.
+* backward (America/Godthab): New backward-compatibility link.
+* europe, zone.tab, zone1970.tab (America/Nuuk):
+Rename from America/Godthab.
+---
+ NEWS         | 6 ++++++
+ backward     | 1 +
+ europe       | 7 +++++--
+ zone.tab     | 2 +-
+ zone1970.tab | 2 +-
+ 5 files changed, 14 insertions(+), 4 deletions(-)
+
+diff --git a/NEWS b/NEWS
+index af0f06f..c28905b 100644
+--- a/NEWS
++++ b/NEWS
+@@ -16,6 +16,12 @@ Unreleased, experimental changes
+     spring 2019.  The first transition is on 2019-10-06.  (Thanks to
+     Kyle Czech and Michael Deckers.)
+
++  Changes to timezone identifiers
++
++    To reflect current usage in English better, America/Godthab has
++    been renamed to America/Nuuk.  A backwards-compatibility link
++    remains for the old name.
++
+ Release 2019b - 2019-07-01 00:09:53 -0700
+
+   Briefly:
+diff --git a/backward b/backward
+index b4ae3cf..e13ae52 100644
+--- a/backward
++++ b/backward
+@@ -17,6 +17,7 @@ Link	America/Atikokan	America/Coral_Harbour
+ Link	America/Argentina/Cordoba	America/Cordoba
+ Link	America/Tijuana		America/Ensenada
+ Link	America/Indiana/Indianapolis	America/Fort_Wayne
++Link	America/Nuuk		America/Godthab
+ Link	America/Indiana/Indianapolis	America/Indianapolis
+ Link	America/Argentina/Jujuy	America/Jujuy
+ Link	America/Indiana/Knox	America/Knox_IN
+diff --git a/europe b/europe
+index 361b396..ea6b103 100644
+--- a/europe
++++ b/europe
+@@ -1175,14 +1175,17 @@ Zone America/Danmarkshavn -1:14:40 -	LMT	1916 Jul 28
+ 			-3:00	-	-03	1980 Apr  6  2:00
+ 			-3:00	EU	-03/-02	1996
+ 			0:00	-	GMT
++#
++# Use the old name Scoresbysund, as the current name Ittoqqortoormiit
++# exceeds tzdb's 14-letter limit and has no common English abbreviation.
+ Zone America/Scoresbysund -1:27:52 -	LMT	1916 Jul 28 # Ittoqqortoormiit
+ 			-2:00	-	-02	1980 Apr  6  2:00
+ 			-2:00	C-Eur	-02/-01	1981 Mar 29
+ 			-1:00	EU	-01/+00
+-Zone America/Godthab	-3:26:56 -	LMT	1916 Jul 28 # Nuuk
++Zone America/Nuuk	-3:26:56 -	LMT	1916 Jul 28 # Godthåb
+ 			-3:00	-	-03	1980 Apr  6  2:00
+ 			-3:00	EU	-03/-02
+-Zone America/Thule	-4:35:08 -	LMT	1916 Jul 28 # Pituffik air base
++Zone America/Thule	-4:35:08 -	LMT	1916 Jul 28 # Pituffik
+ 			-4:00	Thule	A%sT
+ 
+ # Estonia
+diff --git a/zone.tab b/zone.tab
+index 408fcb2..55c8ca9 100644
+--- a/zone.tab
++++ b/zone.tab
+@@ -189,7 +189,7 @@ GF	+0456-05220	America/Cayenne
+ GG	+492717-0023210	Europe/Guernsey
+ GH	+0533-00013	Africa/Accra
+ GI	+3608-00521	Europe/Gibraltar
+-GL	+6411-05144	America/Godthab	Greenland (most areas)
++GL	+6411-05144	America/Nuuk	Greenland (most areas)
+ GL	+7646-01840	America/Danmarkshavn	National Park (east coast)
+ GL	+7029-02158	America/Scoresbysund	Scoresbysund/Ittoqqortoormiit
+ GL	+7634-06847	America/Thule	Thule/Pituffik
+diff --git a/zone1970.tab b/zone1970.tab
+index 822ffa1..f761f3e 100644
+--- a/zone1970.tab
++++ b/zone1970.tab
+@@ -173,7 +173,7 @@ GE	+4143+04449	Asia/Tbilisi
+ GF	+0456-05220	America/Cayenne
+ GH	+0533-00013	Africa/Accra
+ GI	+3608-00521	Europe/Gibraltar
+-GL	+6411-05144	America/Godthab	Greenland (most areas)
++GL	+6411-05144	America/Nuuk	Greenland (most areas)
+ GL	+7646-01840	America/Danmarkshavn	National Park (east coast)
+ GL	+7029-02158	America/Scoresbysund	Scoresbysund/Ittoqqortoormiit
+ GL	+7634-06847	America/Thule	Thule/Pituffik
+-- 
+1.8.3.1
+

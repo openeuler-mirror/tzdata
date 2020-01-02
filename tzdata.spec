@@ -1,16 +1,26 @@
-Name:           tzdata
-Version:        2019b
-Release:        6
-Summary:        Timezone data
-License:        Public Domain
-URL:            https://www.iana.org/time-zones
-Source0:        https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
-Source1:        https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
-Patch002:       0002-Fix-have-snprintf-error.patch
+Name:		tzdata
+Version:	2019b
+Release:	6
+Summary:	Timezone data
+License:	Public Domain
+URL:		https://www.iana.org/time-zones
+Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
+Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 
-BuildRequires:  gawk glibc perl-interpreter
-BuildRequires:  java-devel
-BuildRequires:  glibc-common >= 2.5.90-7
+Patch002:	0002-Fix-have-snprintf-error.patch
+
+Patch6000:	backport-Fiji-observes-DST-from-2019-11-10-to-2020-01-12.patch
+Patch6001:	backport-Norfolk-Island-starts-observing-Australian-style-DST.patch
+Patch6002:	backport-Rename-America-Godthab-to-America-Nuuk.patch
+
+Patch9000:	bugfix-0001-add-Beijing-timezone.patch
+Patch9001: 	remove-country-selection-from-tzselect-steps.patch
+Patch9002:	remove-ROC-timezone.patch
+Patch9003:	rename-Macau-to-Macao.patch
+
+BuildRequires:	gawk glibc perl-interpreter
+BuildRequires:	java-devel
+BuildRequires:	glibc-common >= 2.5.90-7
 BuildArchitectures: noarch
 
 %description
@@ -18,19 +28,10 @@ This package contains data files with rules for various timezones around
 the world.
 
 %package        java
-Summary:        Timezone data for Java
-Source3:        javazic.tar.gz
-Source4:        javazic-1.8-37392f2f5d59.tar.xz
-Patch100:       javazic-fixup.patch
-Patch101:       rebase-01.patch
-Patch102:       rebase-02.patch
-Patch103:       7090844.patch
-Patch104:       7133138.patch
-
-Patch9000:      bugfix-0001-add-Beijing-timezone.patch
-Patch9001:      remove-country-selection-from-tzselect-steps.patch
-Patch9002:	remove-ROC-timezone.patch
-Patch9003:	rename-Macau-to-Macao.patch
+Summary:	Timezone data for Java
+Source3:	javazic.tar.gz
+Source4:	javazic-1.8-37392f2f5d59.tar.xz
+Patch100:	javazic-fixup.patch
 
 %description java
 This package contains timezone information for use by Java runtimes.
@@ -39,6 +40,9 @@ This package contains timezone information for use by Java runtimes.
 %setup -q -c -a 1
 
 %patch002 -p1
+%patch6000 -p1
+%patch6001 -p1
+%patch6002 -p1
 %patch9000 -p1
 %patch9001 -p1
 %patch9002 -p1
@@ -118,6 +122,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Thu Feb 2 2019 liuchao<liuchao173@huawei.com> - 2019b-7
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:remove Israel and El_Aaiun timezone and sync community patches
+
 * Wed Dec 4 2019 liuchao<liuchao173@huawei.com> - 2019b-6
 - Type:recommended
 - ID:NA

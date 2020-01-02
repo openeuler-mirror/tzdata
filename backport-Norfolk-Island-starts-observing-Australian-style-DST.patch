@@ -1,0 +1,67 @@
+From 1050999f9fef7e187051a12438efac2a3bb18507 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Wed, 14 Aug 2019 10:38:28 -0700
+Subject: [PATCH 22/46] Norfolk Island starts observing Australian-style DST
+
+(Thanks to Kyle Czech and Michael Deckers.)
+* NEWS: Mention this.
+* australasia (Pacific/Norfolk):
+Start observing AN-style DST this spring.
+---
+ NEWS        | 5 +++++
+ australasia | 9 ++++++++-
+ 2 files changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 3b5cc22..6cdb873 100644
+--- a/NEWS
++++ b/NEWS
+@@ -4,6 +4,7 @@ Unreleased, experimental changes
+
+   Briefly:
+     Fiji observes DST from 2019-11-10 to 2020-01-12.
++    Norfolk Island starts observing Australian-style DST.
+
+   Changes to future timestamps
+
+@@ -11,6 +12,10 @@ Unreleased, experimental changes
+     instead of 2019-11-03 and 2020-01-19.  (Thanks to Raymond Kumar.)
+     Adjust future guesses accordingly.
+
++    Norfolk Island will observe Australian-style DST starting in
++    spring 2019.  The first transition is on 2019-10-06.  (Thanks to
++    Kyle Czech and Michael Deckers.)
++
+ Release 2019b - 2019-07-01 00:09:53 -0700
+
+   Briefly:
+diff --git a/australasia b/australasia
+index 5e53db1..33f9732 100644
+--- a/australasia
++++ b/australasia
+@@ -611,7 +611,8 @@ Zone	Pacific/Norfolk	11:11:52 -	LMT	1901 # Kingston
+ 			11:30	-	+1130	1974 Oct 27 02:00
+ 			11:30	1:00	+1230	1975 Mar  2 02:00
+ 			11:30	-	+1130	2015 Oct  4 02:00
+-			11:00	-	+11
++			11:00	-	+11	2019 Jul
++			11:00	AN	+11/+12
+ 
+ # Palau (Belau)
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+@@ -1886,6 +1887,12 @@ Zone	Pacific/Wallis	12:15:20 -	LMT	1901
+ # other than in 1974/5.  See:
+ # https://www.timeanddate.com/time/australia/norfolk-island.html
+ 
++# Norfolk started observing Australian DST in spring 2019.
++# From Kyle Czech (2019-08-13):
++# https://www.legislation.gov.au/Details/F2018L01702
++# From Michael Deckers (2019-08-14):
++# https://www.legislation.gov.au/Details/F2019C00010
++
+ # Palau
+ # See commentary for Micronesia.
+ 
+-- 
+2.19.1
+
