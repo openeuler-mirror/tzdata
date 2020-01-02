@@ -57,7 +57,6 @@ rm tzdata.zi
 mkdir javazic
 tar zxf %{SOURCE3} -C javazic
 cd javazic
-
 %patch100
 
 mv sun rht
