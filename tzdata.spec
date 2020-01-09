@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2019b
-Release:	7
+Release:	8
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -17,6 +17,8 @@ Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
 Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
+Patch9004:	remove-El_Aaiun-timezone.patch
+Patch9005:	remove-Israel-timezone.patch
 
 BuildRequires:	gawk glibc perl-interpreter
 BuildRequires:	java-devel
@@ -49,6 +51,8 @@ This package contains timezone information for use by Java runtimes.
 %patch9001 -p1
 %patch9002 -p1
 %patch9003 -p1
+%patch9004 -p1
+%patch9005 -p1
 
 make VERSION=%{version} tzdata%{version}-rearguard.tar.gz
 tar zxf tzdata%{version}-rearguard.tar.gz
@@ -120,11 +124,17 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Jan 8 2020 liuchao<liuchao173@huawei.com> - 2019b-8
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:remove Israel and El_Aaiun timezone
+
 * Thu Jan 2 2020 liuchao<liuchao173@huawei.com> - 2019b-7
 - Type:bugfix
 - ID:NA
 - SUG:NA
-- DESC:remove Israel and El_Aaiun timezone and sync community patches
+- DESC:sync community patches
 
 * Wed Dec 4 2019 liuchao<liuchao173@huawei.com> - 2019b-6
 - Type:recommended
