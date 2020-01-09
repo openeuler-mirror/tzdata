@@ -1,13 +1,11 @@
 Name:		tzdata
 Version:	2019b
-Release:	8
+Release:	9
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
 Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
-
-Patch002:	0002-Fix-have-snprintf-error.patch
 
 Patch6000:	backport-Fiji-observes-DST-from-2019-11-10-to-2020-01-12.patch
 Patch6001:	backport-Norfolk-Island-starts-observing-Australian-style-DST.patch
@@ -33,15 +31,12 @@ the world.
 Summary:	Timezone data for Java
 Source3:	javazic.tar.gz
 Source4:	javazic-1.8-37392f2f5d59.tar.xz
-Patch100:	javazic-fixup.patch
 
 %description java
 This package contains timezone information for use by Java runtimes.
 
 %prep
 %setup -q -c -a 1
-
-%patch002 -p1
 
 %patch6000 -p1
 %patch6001 -p1
@@ -61,7 +56,6 @@ rm tzdata.zi
 mkdir javazic
 tar zxf %{SOURCE3} -C javazic
 cd javazic
-%patch100
 
 mv sun rht
 find . -type f -name '*.java' -print0 \
@@ -124,6 +118,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Thu Jan 9 2020 liuchao<liuchao173@huawei.com> - 2019b-9
+- Type:recommended
+- ID:NA
+- SUG:NA
+- DESC:remove useless patches
+
 * Wed Jan 8 2020 liuchao<liuchao173@huawei.com> - 2019b-8
 - Type:bugfix
 - ID:NA
