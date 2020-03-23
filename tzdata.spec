@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2019b
-Release:	9
+Release:	10
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -118,6 +118,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Mon Mar 23 2020 liuchao<liuchao173@huawei.com> - 2019b-10
+- Type:recommended
+- ID:NA
+- SUG:NA
+- DESC:add Beijing timezone in zone1970.tab
+
 * Thu Jan 9 2020 liuchao<liuchao173@huawei.com> - 2019b-9
 - Type:recommended
 - ID:NA
