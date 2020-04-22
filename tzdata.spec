@@ -1,15 +1,15 @@
 Name:		tzdata
-Version:	2019b
-Release:	10
+Version:	2019c
+Release:	1
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
 Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 
-Patch6000:	backport-Fiji-observes-DST-from-2019-11-10-to-2020-01-12.patch
-Patch6001:	backport-Norfolk-Island-starts-observing-Australian-style-DST.patch
-Patch6002:	backport-Rename-America-Godthab-to-America-Nuuk.patch
+Patch6000:	backport-Rename-America-Godthab-to-America-Nuuk.patch
+Patch6001:	backport-Yukon-advances-to-year-round-07-from-2020-03-08.patch
+Patch6002:	backport-Morocco-springs-forward-on-05-31-not-05-24.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -118,6 +118,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Thu Apr 16 2020 liuchao<liuchao173@huawei.com> - 2019c-1
+- Type:recommended
+- ID:NA
+- SUG:NA
+- DESC:rebase to tzdata-2019c
+
 * Mon Mar 23 2020 liuchao<liuchao173@huawei.com> - 2019b-10
 - Type:recommended
 - ID:NA

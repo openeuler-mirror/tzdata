@@ -1,7 +1,7 @@
 From d7715ab774d8ffdf6b745a8758f392617890c676 Mon Sep 17 00:00:00 2001
 From: Paul Eggert <eggert@cs.ucla.edu>
 Date: Tue, 19 Nov 2019 15:16:16 -0800
-Subject: [PATCH 1/2] Rename America/Godthab to America/Nuuk
+Subject: [PATCH 06/35] Rename America/Godthab to America/Nuuk
 
 * NEWS: Mention this.
 * backward (America/Godthab): New backward-compatibility link.
@@ -19,19 +19,19 @@ diff --git a/NEWS b/NEWS
 index af0f06f..c28905b 100644
 --- a/NEWS
 +++ b/NEWS
-@@ -16,6 +16,12 @@ Unreleased, experimental changes
-     spring 2019.  The first transition is on 2019-10-06.  (Thanks to
-     Kyle Czech and Michael Deckers.)
-
+@@ -55,6 +55,12 @@ Release 2019c - 2019-09-11 08:59:48 -0700
+     Hong Kong Winter Time, observed from 1941-10-01 to 1941-12-25,
+     is now flagged as DST and is abbreviated HKWT not HKT.
+ 
 +  Changes to timezone identifiers
 +
 +    To reflect current usage in English better, America/Godthab has
 +    been renamed to America/Nuuk.  A backwards-compatibility link
 +    remains for the old name.
 +
- Release 2019b - 2019-07-01 00:09:53 -0700
-
-   Briefly:
+   Changes to code
+ 
+     leapseconds.awk now relies only on its input data, rather than
 diff --git a/backward b/backward
 index b4ae3cf..e13ae52 100644
 --- a/backward
@@ -95,5 +95,5 @@ index 822ffa1..f761f3e 100644
  GL	+7029-02158	America/Scoresbysund	Scoresbysund/Ittoqqortoormiit
  GL	+7634-06847	America/Thule	Thule/Pituffik
 -- 
-1.8.3.1
+2.19.1
 
