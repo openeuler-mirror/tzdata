@@ -191,11 +191,11 @@ index 85fc001..538c1d1 100644
 +++ b/tz-link.html
 @@ -814,9 +814,9 @@ Chile's official time (in Spanish)</a>.</dd>
  <dd>The Hong Kong Observatory maintains a
- <a href="https://www.hko.gov.hk/gts/time/Summertime.htm">history of
+ <a href="https://www.hko.gov.hk/en/gts/time/Summertime.htm">history of
   summer time in Hong Kong</a>,
 -and Macau's Meteorological and Geophysical Bureau maintains a <a
 +and Macao's Meteorological and Geophysical Bureau maintains a <a
- href="http://www.smg.gov.mo/smg/geophysics/e_t_Summer%20Time.htm">similar
+ href="https://www.smg.gov.mo/en/subpage/224/page/174">similar
 -history for Macau</a>.
 +history for Macao</a>.
  Unfortunately the latter is incomplete and has errors.</dd>

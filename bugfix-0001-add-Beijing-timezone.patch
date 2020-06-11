@@ -21,7 +21,7 @@ index 35774c6..2514bbf 100644
  
 +# Nowadays, China Standard Time is known as "Beijing Time"
 +Zone    Asia/Beijing    8:00    PRC     C%sT
- # Hong Kong (Xianggang)
+ # Hong Kong
  
  # Milne gives 7:36:41.7; round this.
 diff --git a/backward b/backward
