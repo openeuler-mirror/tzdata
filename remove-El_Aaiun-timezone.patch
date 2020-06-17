@@ -1,22 +1,8 @@
-From 2c270f246664c9990c6e06b13a579db5df34a1f7 Mon Sep 17 00:00:00 2001
-From: liuchao <liuchao173@huawei.com>
-Date: Thu, 26 Dec 2019 08:00:47 +0000
-Subject: [PATCH] tzdata: remove El_Aaiun timezone
-
-  Remove El_Aaiun timezone for political sensitivity
-
----
- NEWS         |  9 +++------
- africa       | 16 ----------------
- zone.tab     |  1 -
- zone1970.tab |  1 -
- 4 files changed, 3 insertions(+), 24 deletions(-)
-
 diff --git a/NEWS b/NEWS
-index 0f386df..abbd71a 100644
+index a2db876..22458a3 100644
 --- a/NEWS
 +++ b/NEWS
-@@ -1257,9 +1257,9 @@ Release 2016g - 2016-09-13 08:56:38 -0700
+@@ -1414,9 +1414,9 @@ Release 2016g - 2016-09-13 08:56:38 -0700
      zic no longer generates binary files containing POSIX TZ-like
      strings that disagree with the local time type after the last
      explicit transition in the data.  This fixes a bug with
@@ -29,7 +15,7 @@ index 0f386df..abbd71a 100644
  
      If the installed localtime and/or posixrules files are symbolic
      links, zic now keeps them symbolic links when updating them, for
-@@ -2614,9 +2614,6 @@ Release 2013h - 2013-10-25 15:32:32 -0700
+@@ -2771,9 +2771,6 @@ Release 2013h - 2013-10-25 15:32:32 -0700
      Libya has switched its UT offset back to +02 without DST, instead
      of +01 with DST.  (Thanks to Even Scharning.)
  
@@ -40,10 +26,10 @@ index 0f386df..abbd71a 100644
  
      Acre and (we guess) western Amazonas will switch from UT -04 to -05
 diff --git a/africa b/africa
-index feb6017..64f385a 100644
+index 724744f..3dfd0a7 100644
 --- a/africa
 +++ b/africa
-@@ -1090,22 +1090,6 @@ Zone Africa/Casablanca	-0:30:20 -	LMT	1913 Oct 26
+@@ -1096,22 +1096,6 @@ Zone Africa/Casablanca	-0:30:20 -	LMT	1913 Oct 26
  			 0:00	Morocco	+00/+01	2018 Oct 28  3:00
  			 1:00	Morocco	+01/+00
  
@@ -67,7 +53,7 @@ index feb6017..64f385a 100644
  #
  # Shanks gives 1903-03-01 for the transition to CAT.
 diff --git a/zone.tab b/zone.tab
-index 3164018..e6e09bc 100644
+index 8c28f76..b9def00 100644
 --- a/zone.tab
 +++ b/zone.tab
 @@ -168,7 +168,6 @@ EC	-0210-07950	America/Guayaquil	Ecuador (mainland)
@@ -79,10 +65,10 @@ index 3164018..e6e09bc 100644
  ES	+4024-00341	Europe/Madrid	Spain (mainland)
  ES	+3553-00519	Africa/Ceuta	Ceuta, Melilla
 diff --git a/zone1970.tab b/zone1970.tab
-index 03ec66b..6a27a7f 100644
+index 169feda..a572064 100644
 --- a/zone1970.tab
 +++ b/zone1970.tab
-@@ -156,7 +156,6 @@ EC	-0210-07950	America/Guayaquil	Ecuador (mainland)
+@@ -157,7 +157,6 @@ EC	-0210-07950	America/Guayaquil	Ecuador (mainland)
  EC	-0054-08936	Pacific/Galapagos	Galápagos Islands
  EE	+5925+02445	Europe/Tallinn
  EG	+3003+03115	Africa/Cairo
@@ -90,5 +76,3 @@ index 03ec66b..6a27a7f 100644
  ES	+4024-00341	Europe/Madrid	Spain (mainland)
  ES	+3553-00519	Africa/Ceuta	Ceuta, Melilla
  ES	+2806-01524	Atlantic/Canary	Canary Islands
--- 
-2.19.1

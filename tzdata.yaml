@@ -1,0 +1,4 @@
+version_control: github
+src_repo: eggert/tz
+tag_prefix: ""
+seperator: "."
