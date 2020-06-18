@@ -1,34 +1,21 @@
-From d23da9b32cc3c591a54861eab4d15606ce2fea2c Mon Sep 17 00:00:00 2001
-From:  <linyanly.lin@huawei.com>
-Date: Wed, 21 Jun 2017 16:35:40 +0800
-Subject: [PATCH] add Beijing timezone
-
-Signed-off-by:  <linyanly.lin@huawei.com>
----
- asia         | 2 ++
- backward     | 2 +-
- zone.tab     | 3 ++-
- zone1970.tab | 3 ++-
- 4 files changed, 7 insertions(+), 3 deletions(-)
-
 diff --git a/asia b/asia
-index 35774c6..2514bbf 100644
+index 106efad..c631935 100644
 --- a/asia
 +++ b/asia
-@@ -518,6 +518,8 @@ Zone	Asia/Urumqi	5:50:20	-	LMT	1928
+@@ -675,6 +675,8 @@ Zone	Asia/Shanghai	8:05:43	-	LMT	1901
+ Zone	Asia/Urumqi	5:50:20	-	LMT	1928
  			6:00	-	+06
- 
  
 +# Nowadays, China Standard Time is known as "Beijing Time"
 +Zone    Asia/Beijing    8:00    PRC     C%sT
- # Hong Kong (Xianggang)
  
- # Milne gives 7:36:41.7; round this.
+ # Hong Kong
+ 
 diff --git a/backward b/backward
-index 09f2a31..4af31d3 100644
+index e13ae52..348f99e 100644
 --- a/backward
 +++ b/backward
-@@ -95,7 +95,7 @@ Link	America/Mexico_City	Mexico/General
+@@ -101,7 +101,7 @@ Link	America/Mexico_City	Mexico/General
  Link	Pacific/Auckland	NZ
  Link	Pacific/Chatham		NZ-CHAT
  Link	America/Denver		Navajo
@@ -38,7 +25,7 @@ index 09f2a31..4af31d3 100644
  Link	Pacific/Pohnpei		Pacific/Ponape
  Link	Pacific/Pago_Pago	Pacific/Samoa
 diff --git a/zone.tab b/zone.tab
-index 204048c..9eea19e 100644
+index 8d056e3..cfd90aa 100644
 --- a/zone.tab
 +++ b/zone.tab
 @@ -145,7 +145,8 @@ CL	-3327-07040	America/Santiago	Chile (most areas)
@@ -52,6 +39,7 @@ index 204048c..9eea19e 100644
  CO	+0436-07405	America/Bogota
  CR	+0956-08405	America/Costa_Rica
 diff --git a/zone1970.tab b/zone1970.tab
+index 53ee77e..3d21c92 100644
 --- a/zone1970.tab
 +++ b/zone1970.tab
 @@ -137,7 +137,8 @@ CK	-2114-15946	Pacific/Rarotonga
@@ -64,5 +52,3 @@ diff --git a/zone1970.tab b/zone1970.tab
  CN	+4348+08735	Asia/Urumqi	Xinjiang Time
  CO	+0436-07405	America/Bogota
  CR	+0956-08405	America/Costa_Rica
--- 
-1.8.3.1

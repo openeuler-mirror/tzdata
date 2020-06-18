@@ -1,18 +1,8 @@
-From e8f92212b847873fa367ed1f65629b01b72f0c5d Mon Sep 17 00:00:00 2001
-From: liuchao <liuchao173@huawei.com>
-Date: Thu, 28 Nov 2019 16:46:39 +0800
-Subject: [PATCH] tzdata: remove ROC timezone
-
-	remove ROC timezone in backward
----
- backward     | 1 -
- 1 files changed, 1 deletions(-)
-
 diff --git a/backward b/backward
-index b745dc4..0791742 100644
+index 348f99e..d13e811 100644
 --- a/backward
 +++ b/backward
-@@ -108,7 +108,6 @@ Link	Pacific/Chuuk		Pacific/Truk
+@@ -109,7 +109,6 @@ Link	Pacific/Chuuk		Pacific/Truk
  Link	Pacific/Chuuk		Pacific/Yap
  Link	Europe/Warsaw		Poland
  Link	Europe/Lisbon		Portugal
@@ -20,6 +10,3 @@ index b745dc4..0791742 100644
  Link	Asia/Seoul		ROK
  Link	Asia/Singapore		Singapore
  Link	Europe/Istanbul		Turkey
--- 
-2.19.1
-

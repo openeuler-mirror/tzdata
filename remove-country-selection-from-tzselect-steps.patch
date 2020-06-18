@@ -1,15 +1,5 @@
-From 5832b4af2d049beec76ecd4513d5333d4a76cd91 Mon Sep 17 00:00:00 2001
-From: hejingxian <hejingxian@huawei.com>
-Date: Tue, 4 Sep 2019 15:19:46 +0800
-Subject: [PATCH] Remove country select operation from tzselect steps.
-
-For political reasons, avoid selecting country in tzselect.
----
- tzselect.ksh | 90 +++++++++++-------------------------------------------------
- 1 file changed, 16 insertions(+), 74 deletions(-)
-
 diff --git a/tzselect.ksh b/tzselect.ksh
-index 18fce27..65fef55 100644
+index 18fce27..7784f2e 100644
 --- a/tzselect.ksh
 +++ b/tzselect.ksh
 @@ -51,7 +51,7 @@ say() {
@@ -131,6 +121,3 @@ index 18fce27..65fef55 100644
  		esac
  
  		# Make sure the corresponding zoneinfo file exists.
--- 
-1.8.3.1
-

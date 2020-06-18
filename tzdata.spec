@@ -1,15 +1,13 @@
 Name:		tzdata
-Version:	2019c
+Version:	2020a
 Release:	1
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
 Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
-
-Patch6000:	backport-Rename-America-Godthab-to-America-Nuuk.patch
-Patch6001:	backport-Yukon-advances-to-year-round-07-from-2020-03-08.patch
-Patch6002:	backport-Morocco-springs-forward-on-05-31-not-05-24.patch
+Source2:	javazic.tar.gz
+Source3:	javazic-1.8-37392f2f5d59.tar.xz
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -29,18 +27,12 @@ the world.
 
 %package        java
 Summary:	Timezone data for Java
-Source3:	javazic.tar.gz
-Source4:	javazic-1.8-37392f2f5d59.tar.xz
 
 %description java
 This package contains timezone information for use by Java runtimes.
 
 %prep
 %setup -q -c -a 1
-
-%patch6000 -p1
-%patch6001 -p1
-%patch6002 -p1
 
 %patch9000 -p1
 %patch9001 -p1
@@ -54,7 +46,7 @@ tar zxf tzdata%{version}-rearguard.tar.gz
 rm tzdata.zi
 
 mkdir javazic
-tar zxf %{SOURCE3} -C javazic
+tar zxf %{SOURCE2} -C javazic
 cd javazic
 
 mv sun rht
@@ -63,7 +55,7 @@ find . -type f -name '*.java' -print0 \
                          -e 's:sun\.util\.:rht.util.:g'
 cd ..
 
-tar xf %{SOURCE4}
+tar xf %{SOURCE3}
 
 echo "%{name}%{version}" >> VERSION
 
@@ -118,6 +110,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Jun 17 2020 Shinwell Hu <huxinwei@huawei.com> - 2020a - 1
+- Upgrade to 2020a
+
 * Thu Apr 16 2020 liuchao<liuchao173@huawei.com> - 2019c-1
 - Type:recommended
 - ID:NA

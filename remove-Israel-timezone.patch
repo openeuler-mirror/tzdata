@@ -1,18 +1,8 @@
-From 56ce50af655d47852ee35185e89e48d7bf9398f3 Mon Sep 17 00:00:00 2001
-From: liuchao <liuchao173@huawei.com>
-Date: Fri, 27 Dec 2019 03:26:21 +0000
-Subject: [PATCH] tzdata: remove Israel timezone
-
-    Remove Israel timezone for political sensitivity
----
- backward | 1 -
- 1 file changed, 1 deletion(-)
-
 diff --git a/backward b/backward
-index 7a83706..57e7e87 100644
+index 601977d..107738c 100644
 --- a/backward
 +++ b/backward
-@@ -88,7 +88,6 @@ Link	Etc/GMT			Greenwich
+@@ -89,7 +89,6 @@ Link	Etc/GMT			Greenwich
  Link	Asia/Hong_Kong		Hongkong
  Link	Atlantic/Reykjavik	Iceland
  Link	Asia/Tehran		Iran
@@ -20,6 +10,3 @@ index 7a83706..57e7e87 100644
  Link	America/Jamaica		Jamaica
  Link	Asia/Tokyo		Japan
  Link	Pacific/Kwajalein	Kwajalein
--- 
-2.19.1
-
