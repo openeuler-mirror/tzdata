@@ -2,3 +2,7 @@ version_control: github
 src_repo: eggert/tz
 tag_prefix: ""
 seperator: "."
+
+remark: >
+    tzdata is derived from the legal time zone regulations of various countries, and will be released multiple times a year; check with the official website every month whether the latest version is available; time zone data needs to comply with national laws, and relevant patches need to be inherited;
+    The official website https://data.iana.org/time-zones/tz-link.html indicates that the git address is https://github.com/eggert/tz
