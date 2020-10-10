@@ -1,0 +1,648 @@
+From 402965e639e89b3bdad2cc9ed36451f466766edb Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Sun, 26 Apr 2020 23:39:52 -0700
+Subject: [PATCH 02/47] Use bold for command and func names in man pages
+
+This seems to be the modern style.
+Problem reported by Michael Kerrisk (for GNU/Linux man pages).
+---
+ date.1        |   4 ++-
+ newctime.3    | 104 ++++++++++++++++++++++++++++++++++++----------------------
+ newstrftime.3 |   4 +--
+ newtzset.3    |  34 +++++++++++--------
+ time2posix.3  |  24 ++++++++------
+ tzfile.5      |  52 ++++++++++++++---------------
+ tzselect.8    |   2 +-
+ zdump.8       |   2 +-
+ zic.8         |   2 +-
+ 9 files changed, 133 insertions(+), 95 deletions(-)
+
+diff --git a/date.1 b/date.1
+index 6e79cc1..432cab1 100644
+--- a/date.1
++++ b/date.1
+@@ -27,7 +27,9 @@ date \- show and set date and time
+ .de q
+ \\$3\*(lq\\$1\*(rq\\$2
+ ..
+-.I Date
++The
++.B date
++command
+ without arguments writes the date and time to the standard output in
+ the form
+ .ce 1
+diff --git a/newctime.3 b/newctime.3
+index 565e89a..cc56e2c 100644
+--- a/newctime.3
++++ b/newctime.3
+@@ -51,7 +51,9 @@ asctime, ctime, difftime, gmtime, localtime, mktime \- convert date and time
+ .de q
+ \\$3\*(lq\\$1\*(rq\\$2
+ ..
+-.I Ctime
++The
++.B ctime
++function
+ converts a long integer, pointed to by
+ .IR clock ,
+ and returns a pointer to a
+@@ -86,45 +88,55 @@ and can therefore represent timestamps that predate the
+ introduction of UTC and are some other flavor of Universal Time (UT).
+ Some implementations support leap seconds, in contradiction to POSIX.
+ .PP
+-.I Localtime
++The
++.B localtime
+ and
+-.I gmtime
++.B gmtime
++functions
+ return pointers to
+ .q "tm"
+ structures, described below.
+-.I Localtime
++The
++.B localtime
++function
+ corrects for the time zone and any time zone adjustments
+ (such as Daylight Saving Time in the United States).
+ After filling in the
+ .q "tm"
+ structure,
+-.I localtime
++.B localtime
+ sets the
+ .BR tm_isdst 'th
+ element of
+ .B tzname
+ to a pointer to a string that's the time zone abbreviation to be used with
+-.IR localtime 's
++.BR localtime 's
+ return value.
+ .PP
+-.I Gmtime
++The
++.B gmtime
++function
+ converts to Coordinated Universal Time.
+ .PP
+-.I Asctime
++The
++.B asctime
++function
+ converts a time value contained in a
+ .q "tm"
+ structure to a string,
+ as shown in the above example,
+ and returns a pointer to the string.
+ .PP
+-.I Mktime
++The
++.B mktime
++function
+ converts the broken-down time,
+ expressed as local time,
+ in the structure pointed to by
+ .I tm
+ into a calendar time value with the same encoding as that of the values
+ returned by the
+-.I time
++.B time
+ function.
+ The original values of the
+ .B tm_wday
+@@ -136,14 +148,14 @@ to their normal ranges.
+ (A positive or zero value for
+ .B tm_isdst
+ causes
+-.I mktime
++.B mktime
+ to presume initially that daylight saving time
+ respectively,
+ is or is not in effect for the specified time.
+ A negative value for
+ .B tm_isdst
+ causes the
+-.I mktime
++.B mktime
+ function to attempt to divine whether daylight saving time is in effect
+ for the specified time; in this case it does not use a consistent
+ rule and may give a different answer when later
+@@ -161,29 +173,37 @@ is not set until
+ and
+ .B tm_year
+ are determined.
+-.I Mktime
++The
++.B mktime
++function
+ returns the specified calendar time;
+ If the calendar time cannot be represented,
+ it returns \-1.
+ .PP
+-.I Difftime
++The
++.B difftime
++function
+ returns the difference between two calendar times,
+ .RI ( time1
+ \-
+ .IR time0 ),
+ expressed in seconds.
+ .PP
+-.IR Ctime_r ,
+-.IR localtime_r ,
+-.IR gmtime_r ,
++The
++.BR ctime_r ,
++.BR localtime_r ,
++.BR gmtime_r ,
+ and
+-.I asctime_r
++.B asctime_r
++functions
+ are like their unsuffixed counterparts, except that they accept an
+ additional argument specifying where to store the result if successful.
+ .PP
+-.IR Localtime_rz
++The
++.B localtime_rz
+ and
+-.I mktime_z
++.B mktime_z
++functions
+ are like their unsuffixed counterparts, except that they accept an
+ extra initial
+ .B zone
+@@ -193,9 +213,9 @@ If
+ is null, UT is used; otherwise,
+ .B zone
+ should be have been allocated by
+-.I tzalloc
++.B tzalloc
+ and should not be freed until after all uses (e.g., by calls to
+-.IR strftime )
++.BR strftime )
+ of the filled-in
+ .B tm_zone
+ fields.
+@@ -227,21 +247,25 @@ includes the following fields:
+ .fi
+ .RE
+ .PP
+-.I Tm_isdst
++The
++.B tm_isdst
++field
+ is non-zero if daylight saving time is in effect.
+ .PP
+-.I Tm_gmtoff
++The
++.B tm_gmtoff
++field
+ is the offset (in seconds) of the time represented
+ from UT, with positive values indicating east
+ of the Prime Meridian.
+ The field's name is derived from Greenwich Mean Time, a precursor of UT.
+ .PP
+ In
+-.B struct tm
++.B "struct tm"
+ the
+-.I tm_zone
++.B tm_zone
+ and
+-.I tm_gmtoff
++.B tm_gmtoff
+ fields exist, and are filled in, only if arrangements to do
+ so were made when the library containing these functions was
+ created.
+@@ -273,11 +297,11 @@ time(2),
+ tzfile(5)
+ .SH NOTES
+ The return values of
+-.IR asctime ,
+-.IR ctime ,
+-.IR gmtime ,
++.BR asctime ,
++.BR ctime ,
++.BR gmtime ,
+ and
+-.I localtime
++.B localtime
+ point to static data
+ overwritten by each call.
+ The
+@@ -288,19 +312,21 @@ field of a returned
+ .B "struct tm"
+ both point to an array of characters that
+ can be freed or overwritten by later calls to the functions
+-.IR localtime ,
+-.IR tzfree ,
++.BR localtime ,
++.BR tzfree ,
+ and
+-.IR tzset ,
++.BR tzset ,
+ if these functions affect the timezone information that specifies the
+ abbreviation in question.
+ The remaining functions and data are thread-safe.
+ .PP
+-.IR Asctime ,
+-.IR asctime_r ,
+-.IR ctime ,
++The
++.BR asctime ,
++.BR asctime_r ,
++.BR ctime ,
+ and
+-.I ctime_r
++.B ctime_r
++functions
+ behave strangely for years before 1000 or after 9999.
+ The 1989 and 1999 editions of the C Standard say
+ that years from \-99 through 999 are converted without
+@@ -311,7 +337,7 @@ is undefined if the year is before 1000 or after 9999.
+ Traditional implementations of these two functions are
+ restricted to years in the range 1900 through 2099.
+ To avoid this portability mess, new programs should use
+-.I strftime
++.B strftime
+ instead.
+ .\" This file is in the public domain, so clarified as of
+ .\" 2009-05-17 by Arthur David Olson.
+diff --git a/newstrftime.3 b/newstrftime.3
+index eee503e..df38d1a 100644
+--- a/newstrftime.3
++++ b/newstrftime.3
+@@ -60,7 +60,7 @@ strftime \- format date and time
+ \\$3\*(lq\\$1\*(rq\\$2
+ ..
+ The
+-.I strftime
++.B strftime
+ function formats the information from
+ .I timeptr
+ into the buffer
+@@ -83,7 +83,7 @@ characters are placed into the array.
+ If the total number of resulting characters, including the terminating
+ null character, is not more than
+ .IR maxsize ,
+-.I strftime
++.B strftime
+ returns the number of characters in the array, not counting the
+ terminating null.
+ Otherwise, zero is returned.
+diff --git a/newtzset.3 b/newtzset.3
+index 4959851..05aa350 100644
+--- a/newtzset.3
++++ b/newtzset.3
+@@ -25,49 +25,55 @@ tzset \- initialize time conversion information
+ .de q
+ \\$3\*(lq\\$1\*(rq\\$2
+ ..
+-.I Tzalloc
++The
++.B tzalloc
++function
+ allocates and returns a timezone object described by
+ .BR TZ .
+ If
+ .B TZ
+ is not a valid timezone description, or if the object cannot be allocated,
+-.I tzalloc
++.B tzalloc
+ returns a null pointer and sets
+ .BR errno .
+ .PP
+-.I Tzfree
++The
++.B tzfree
++function
+ frees a timezone object
+ .BR tz ,
+ which should have been successfully allocated by
+-.IR tzalloc .
++.BR tzalloc .
+ This invalidates any
+ .B tm_zone
+ pointers that
+ .B tz
+ was used to set.
+ .PP
+-.I Tzset
++The
++.B tzset
++function
+ acts like
+ .BR tzalloc(getenv("TZ")) ,
+ except it saves any resulting timezone object into internal
+ storage that is accessed by
+-.IR localtime ,
+-.IR localtime_r ,
++.BR localtime ,
++.BR localtime_r ,
+ and
+-.IR mktime .
++.BR mktime .
+ The anonymous shared timezone object is freed by the next call to
+-.IR tzset .
++.BR tzset .
+ If the implied call to
+ .B tzalloc
+ fails,
+-.I tzset
++.B tzset
+ falls back on Universal Time (UT).
+ .PP
+ If
+ .B TZ
+ is null, the best available approximation to local (wall
+ clock) time, as specified by the
+-.IR tzfile (5)-format
++.BR tzfile (5)-format
+ file
+ .B localtime
+ in the system time conversion information directory, is used.
+@@ -76,7 +82,7 @@ If
+ is the empty string,
+ UT is used, with the abbreviation "UTC"
+ and without leap second correction; please see
+-.IR newctime (3)
++.BR newctime (3)
+ for more about UT, UTC, and leap seconds.  If
+ .B TZ
+ is nonnull and nonempty:
+@@ -96,7 +102,7 @@ it is used as an absolute pathname; otherwise,
+ it is used as a pathname relative to a system time conversion information
+ directory.
+ The file must be in the format specified in
+-.IR tzfile (5).
++.BR tzfile (5).
+ .PP
+ When
+ .B TZ
+@@ -304,7 +310,7 @@ is present in
+ .BR TZ ,
+ the rules specified
+ by the
+-.IR tzfile (5)-format
++.BR tzfile (5)-format
+ file
+ .B posixrules
+ in the system time conversion information directory are used, with the
+diff --git a/time2posix.3 b/time2posix.3
+index e4b8e81..fbb5766 100644
+--- a/time2posix.3
++++ b/time2posix.3
+@@ -47,11 +47,11 @@ to be
+ (mostly)
+ opaque \*(en time_t values should only be obtained-from and
+ passed-to functions such as
+-.IR time(2) ,
+-.IR localtime(3) ,
+-.IR mktime(3) ,
++.BR time(2) ,
++.BR localtime(3) ,
++.BR mktime(3) ,
+ and
+-.IR difftime(3) .
++.BR difftime(3) .
+ However,
+ POSIX gives an arithmetic
+ expression for directly computing a time_t value from a given date/time,
+@@ -63,9 +63,9 @@ using such a relationship will typically not handle intervals
+ over leap seconds correctly.
+ .PP
+ The
+-.I time2posix
++.B time2posix
+ and
+-.I posix2time
++.B posix2time
+ functions are provided to address this time_t mismatch by converting
+ between local time_t values and their POSIX equivalents.
+ This is done by accounting for the number of time-base changes that
+@@ -75,12 +75,16 @@ These converted values can then be used in lieu of correcting the older
+ applications,
+ or when communicating with POSIX-compliant systems.
+ .PP
+-.I Time2posix
++The
++.B time2posix
++function
+ is single-valued.
+ That is,
+ every local time_t
+ corresponds to a single POSIX time_t.
+-.I Posix2time
++The
++.B posix2time
++function
+ is less well-behaved:
+ for a positive leap second hit the result is not unique,
+ and for a negative leap second hit the corresponding
+@@ -116,9 +120,9 @@ If leap-second support is not enabled,
+ local time_t's and
+ POSIX time_t's are equivalent,
+ and both
+-.I time2posix
++.B time2posix
+ and
+-.I posix2time
++.B posix2time
+ degenerate to the identity function.
+ .SH SEE ALSO
+ difftime(3),
+diff --git a/tzfile.5 b/tzfile.5
+index 3f13563..2642978 100644
+--- a/tzfile.5
++++ b/tzfile.5
+@@ -40,25 +40,25 @@ Fifteen bytes containing zeros reserved for future use.
+ Six four-byte integer values, in the following order:
+ .RS
+ .TP
+-.I tzh_ttisutcnt
++.B tzh_ttisutcnt
+ The number of UT/local indicators stored in the file.
+ (UT is Universal Time.)
+ .TP
+-.I tzh_ttisstdcnt
++.B tzh_ttisstdcnt
+ The number of standard/wall indicators stored in the file.
+ .TP
+-.I tzh_leapcnt
++.B tzh_leapcnt
+ The number of leap seconds for which data entries are stored in the file.
+ .TP
+-.I tzh_timecnt
++.B tzh_timecnt
+ The number of transition times for which data entries are stored
+ in the file.
+ .TP
+-.I tzh_typecnt
++.B tzh_typecnt
+ The number of local time types for which data entries are stored
+ in the file (must not be zero).
+ .TP
+-.I tzh_charcnt
++.B tzh_charcnt
+ The number of bytes of time zone abbreviation strings
+ stored in the file.
+ .RE
+@@ -66,14 +66,14 @@ stored in the file.
+ The above header is followed by the following fields, whose lengths
+ depend on the contents of the header:
+ .IP * 2
+-.I tzh_timecnt
++.B tzh_timecnt
+ four-byte signed integer values sorted in ascending order.
+ These values are written in network byte order.
+ Each is used as a transition time (as returned by
+ .BR time (2))
+ at which the rules for computing local time change.
+ .IP *
+-.I tzh_timecnt
++.B tzh_timecnt
+ one-byte unsigned integer values;
+ each one but the last tells which of the different types of local time types
+ described in the file is associated with the time period
+@@ -83,8 +83,8 @@ and continuing up to but not including the next transition time.
+ POSIX-style TZ string described below.)
+ These values serve as indices into the next field.
+ .IP *
+-.I tzh_typecnt
+-.I ttinfo
++.B tzh_typecnt
++.B ttinfo
+ entries, each defined as follows:
+ .in +.5i
+ .sp
+@@ -99,36 +99,36 @@ struct ttinfo {
+ .fi
+ .sp
+ Each structure is written as a four-byte signed integer value for
+-.IR tt_utoff ,
++.BR tt_utoff ,
+ in network byte order, followed by a one-byte boolean for
+-.I tt_isdst
++.B tt_isdst
+ and a one-byte value for
+-.IR tt_desigidx .
++.BR tt_desigidx .
+ In each structure,
+-.I tt_utoff
++.B tt_utoff
+ gives the number of seconds to be added to UT,
+-.I tt_isdst
++.B tt_isdst
+ tells whether
+-.I tm_isdst
++.B tm_isdst
+ should be set by
+ .BR localtime (3)
+ and
+-.I tt_desigidx
++.B tt_desigidx
+ serves as an index into the array of time zone abbreviation bytes
+ that follow the
+-.I ttinfo
++.B ttinfo
+ structure(s) in the file.
+ The
+-.I tt_utoff
++.B tt_utoff
+ value is never equal to \-2**31, to let 32-bit clients negate it without
+ overflow.
+ Also, in realistic applications
+-.I tt_utoff
++.B tt_utoff
+ is in the range [\-89999, 93599] (i.e., more than \-25 hours and less
+ than 26 hours); this allows easy support by implementations that
+ already support the POSIX-required range [\-24:59:59, 25:59:59].
+ .IP *
+-.I tzh_leapcnt
++.B tzh_leapcnt
+ pairs of four-byte values, written in network byte order;
+ the first value of each pair gives the nonnegative time
+ (as returned by
+@@ -142,12 +142,12 @@ The pairs of values are sorted in ascending order by time.
+ Each transition is for one leap second, either positive or negative;
+ transitions always separated by at least 28 days minus 1 second.
+ .IP *
+-.I tzh_ttisstdcnt
++.B tzh_ttisstdcnt
+ standard/wall indicators, each stored as a one-byte boolean;
+ they tell whether the transition times associated with local time types
+ were specified as standard time or local (wall clock) time.
+ .IP *
+-.I tzh_ttisutcnt
++.B tzh_ttisutcnt
+ UT/local indicators, each stored as a one-byte boolean;
+ they tell whether the transition times associated with local time types
+ were specified as UT or local time.
+@@ -173,10 +173,10 @@ The
+ .BR localtime (3)
+ function
+ normally uses the first
+-.I ttinfo
++.B ttinfo
+ structure in the file
+ if either
+-.I tzh_timecnt
++.B tzh_timecnt
+ is zero or the time argument is less than the first transition time recorded
+ in the file.
+ .SS Version 2 format
+@@ -235,7 +235,7 @@ This guideline helps obsolescent version 1 readers
+ agree with current readers about timestamps within the
+ contiguous subsequence.  It also lets writers not
+ supporting obsolescent readers use a
+-.I tzh_timecnt
++.B tzh_timecnt
+ of zero
+ in the version 1 data block to save space.
+ .PP
+diff --git a/tzselect.8 b/tzselect.8
+index 51f751c..a1ec8d0 100644
+--- a/tzselect.8
++++ b/tzselect.8
+@@ -82,7 +82,7 @@ Output version information and exit.
+ .TP
+ \f3AWK\fP
+ Name of a Posix-compliant
+-.I awk
++.B awk
+ program (default:
+ .BR awk ).
+ .TP
+diff --git a/zdump.8 b/zdump.8
+index 98109ad..f3e4e4e 100644
+--- a/zdump.8
++++ b/zdump.8
+@@ -212,7 +212,7 @@ and
+ output,
+ .q "UT"
+ denotes the value returned by
+-.IR gmtime (3),
++.BR gmtime (3),
+ which uses UTC for modern timestamps and some other UT flavor for
+ timestamps that predate the introduction of UTC.
+ No attempt is currently made to have the output use
+diff --git a/zic.8 b/zic.8
+index b57cd2b..b1bf437 100644
+--- a/zic.8
++++ b/zic.8
+@@ -224,7 +224,7 @@ or that starts with
+ .RE
+ .SH FILES
+ Input files use the format described in this section; output files use
+-.IR tzfile (5)
++.BR tzfile (5)
+ format.
+ .PP
+ Input files should be text files, that is, they should be a series of
+-- 
+1.8.3.1
+

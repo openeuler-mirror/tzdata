@@ -1,0 +1,31 @@
+From 2c431bd71c0f2f994f22d0b1e77e9f740abdd680 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Mon, 21 Sep 2020 11:44:34 -0700
+Subject: [PATCH 34/47] * tz-link.html: Cite Python 3.9 (thanks to Matt
+ Johnson-Pint).
+
+---
+ tz-link.html | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/tz-link.html b/tz-link.html
+index e6e4acd..94aa5f5 100644
+--- a/tz-link.html
++++ b/tz-link.html
+@@ -579,6 +579,13 @@ DateTime::TimeZone::Tzfile</a>
+ is a <abbr>TZif</abbr> file reader written in Perl.
+ It is freely available under the same terms as Perl
+ (dual <abbr>GPL</abbr> and Artistic license).</li>
++<li>Python has a <a
++href="https://docs.python.org/3.9/library/zoneinfo.html"><code>zoneinfo.ZoneInfo</code>
++class</a> that reads <abbr>TZif</abbr> files and creates objects
++that represent <code><abbr>tzdb</abbr></code> timezones.
++Python is freely available under the
++<a href="https://docs.python.org/3.9/license.html">Python Software Foundation
++License</a>.</li>
+ <li>The
+ public-domain <a href="https://github.com/dbaron/tz.js">tz.js</a>
+ library contains a Python tool that
+-- 
+1.8.3.1
+
