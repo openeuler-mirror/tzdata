@@ -1,0 +1,124 @@
+From 6ba6f2117b95eab345a7ed9159cef939e30c4cd3 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Sun, 21 Jun 2020 14:49:03 -0700
+Subject: [PATCH 17/47] =?UTF-8?q?zic=20now=20defaults=20to=20=E2=80=98-b?=
+ =?UTF-8?q?=20slim=E2=80=99?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Make zic’s ‘-b slim’ option the default.  This option first
+appeared in tzdb 2019b (2019-07-01), and is already the default in
+NetBSD 9.0 (2020-02-14) and seems to be working there.  Using
+slim format should help finish off the TZif format’s Y2038
+transition that began in tzcode 95f (1995-10-28).
+* Makefile, NEWS, zic.8: Mention this.
+* zic.c (ZIC_BLOAT_DEFAULT): Default to "slim".
+---
+ Makefile | 10 +++++-----
+ NEWS     |  2 ++
+ zic.8    | 10 ++++------
+ zic.c    |  5 ++---
+ 4 files changed, 13 insertions(+), 14 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 0da7c3f..8abd4d0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -22,6 +22,7 @@ BUGEMAIL=	tz@iana.org
+ #	DATAFORM=	main
+ # To wait even longer for new features, use:
+ #	DATAFORM=	rearguard
++# Rearguard users might also want "ZFLAGS = -b fat"; see below.
+ DATAFORM=		main
+ 
+ # Change the line below for your timezone (after finding the one you want in
+@@ -249,13 +250,12 @@ LDLIBS=
+ #	other than simply getting garbage data
+ #  -DUSE_LTZ=0 to build zdump with the system time zone library
+ #	Also set TZDOBJS=zdump.o and CHECK_TIME_T_ALTERNATIVES= below.
+-#  -DZIC_BLOAT_DEFAULT=\"slim\" to default zic's -b option to "slim", and
+-#	similarly for "fat".  Fat TZif files work around incompatibilities
++#  -DZIC_BLOAT_DEFAULT=\"fat\" to default zic's -b option to "fat", and
++#	similarly for "slim".  Fat TZif files work around incompatibilities
+ #	and bugs in some TZif readers, notably readers that mishandle 64-bit
+ #	data in TZif files.  Slim TZif files are more efficient and do not
+ #	work around these incompatibilities and bugs.  If not given, the
+-#	current default is "fat" but this is intended to change as readers
+-#	requiring fat files often mishandle timestamps after 2037 anyway.
++#	default is "slim".
+ #  -DZIC_MAX_ABBR_LEN_WO_WARN=3
+ #	(or some other number) to set the maximum time zone abbreviation length
+ #	that zic will accept without a warning (the default is 6)
+@@ -390,7 +390,7 @@ ZIC=		$(zic) $(ZFLAGS)
+ 
+ # To shrink the size of installed TZif files,
+ # append "-r @N" to omit data before N-seconds-after-the-Epoch.
+-# You can also append "-b slim" if that is not already the default;
++# To grow the files and work around older application bugs, append "-b fat";
+ # see ZIC_BLOAT_DEFAULT above.
+ # See the zic man page for more about -b and -r.
+ ZFLAGS=
+diff --git a/NEWS b/NEWS
+index bfe02ea..6b9fd43 100644
+--- a/NEWS
++++ b/NEWS
+@@ -23,6 +23,8 @@ Unreleased, experimental changes
+ 
+   Changes to code
+ 
++    zic now defaults to '-b slim' instead of to '-b fat'.
++
+     zic's new '-l -' and '-p -' options uninstall any existing
+     localtime and posixrules files, respectively.
+ 
+diff --git a/zic.8 b/zic.8
+index a431311..8d34368 100644
+--- a/zic.8
++++ b/zic.8
+@@ -61,15 +61,13 @@ is
+ .BR slim ,
+ keep the output files small; this can help check for the bugs
+ and incompatibilities.
+-Although the default is currently
+-.BR fat ,
+-this is intended to change in future
+-.B zic
+-versions, as software that mishandles the 64-bit data typically
++The default is
++.BR slim ,
++as software that mishandles 64-bit data typically
+ mishandles timestamps after the year 2038 anyway.
+ Also see the
+ .B \*-r
+-option for another way to shrink output size.
++option for another way to alter output size.
+ .TP
+ .BI "\*-d " directory
+ Create time conversion information files in the named directory rather than
+diff --git a/zic.c b/zic.c
+index c874b04..3aed819 100644
+--- a/zic.c
++++ b/zic.c
+@@ -661,8 +661,7 @@ static const char *	tzdefault;
+ static const char *	yitcommand;
+ 
+ /* -1 if the TZif output file should be slim, 0 if default, 1 if the
+-   output should be fat for backward compatibility.  Currently the
+-   default is fat, although this may change.  */
++   output should be fat for backward compatibility.  The default is slim.  */
+ static int bloat;
+ 
+ static bool
+@@ -672,7 +671,7 @@ want_bloat(void)
+ }
+ 
+ #ifndef ZIC_BLOAT_DEFAULT
+-# define ZIC_BLOAT_DEFAULT "fat"
++# define ZIC_BLOAT_DEFAULT "slim"
+ #endif
+ 
+ int
+-- 
+1.8.3.1
+

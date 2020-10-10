@@ -1,0 +1,25 @@
+From dd606383a7f4c865a1743d6f8ad51c64d9dd479c Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Thu, 24 Sep 2020 19:28:46 -0700
+Subject: [PATCH 37/47] * NEWS: Fix typo (thanks to Philip Paeps).
+
+---
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 517d1c8..df81d55 100644
+--- a/NEWS
++++ b/NEWS
+@@ -3,7 +3,7 @@ News for the tz database
+ Unreleased, experimental changes
+ 
+   Briefly:
+-    Revised predictions for Morocco's changes starting in 20203.
++    Revised predictions for Morocco's changes starting in 2023.
+     Canada's Yukon changes to -07 on 2020-11-01, not 2020-03-08.
+ 
+   Changes to future timestamps
+-- 
+1.8.3.1
+
