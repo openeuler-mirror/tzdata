@@ -1,5 +1,5 @@
 Name:		tzdata
-Version:	2020a
+Version:	2020b
 Release:	1
 Summary:	Timezone data
 License:	Public Domain
@@ -8,6 +8,8 @@ Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
+
+Patch6000:	backport-Fiji-observes-DST-from-2020-12-20-to-2021-01-17.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -32,14 +34,7 @@ Summary:	Timezone data for Java
 This package contains timezone information for use by Java runtimes.
 
 %prep
-%setup -q -c -a 1
-
-%patch9000 -p1
-%patch9001 -p1
-%patch9002 -p1
-%patch9003 -p1
-%patch9004 -p1
-%patch9005 -p1
+%autosetup -c -a 1 -p1
 
 make VERSION=%{version} tzdata%{version}-rearguard.tar.gz
 tar zxf tzdata%{version}-rearguard.tar.gz
@@ -63,7 +58,7 @@ echo "%{name}%{version}" >> VERSION
 make VERSION=%{version} DATAFORM=rearguard tzdata.zi
 
 FILES="africa antarctica asia australasia europe northamerica southamerica
-       pacificnew etcetera backward"
+       etcetera backward"
 
 mkdir zoneinfo/{,posix,right}
 zic -y ./yearistype -d zoneinfo -L /dev/null -p America/New_York $FILES
@@ -110,7 +105,10 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
-* Wed Jun 17 2020 Shinwell Hu <huxinwei@huawei.com> - 2020a - 1
+* Sat Oct 10 2020 liuchao<liuchao173@huawei.com> - 2020b-1
+- Upgrade to 2020b
+
+* Wed Jun 17 2020 Shinwell Hu <huxinwei@huawei.com> - 2020a-1
 - Upgrade to 2020a
 
 * Thu Apr 16 2020 liuchao<liuchao173@huawei.com> - 2019c-1

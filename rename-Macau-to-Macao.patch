@@ -76,7 +76,7 @@ index c631935..225ffb1 100644
 +# The 1904 decree says that Macao changed from the meridian of
  # Fortaleza do Monte, presumably the basis for the 7:34:10 for LMT.
  
- # Rule	NAME	FROM	TO	TYPE	IN	ON	AT	SAVE	LETTER/S
+ # Rule	NAME	FROM	TO	-	IN	ON	AT	SAVE	LETTER/S
 -Rule	Macau	1942	1943	-	Apr	30	23:00	1:00	-
 -Rule	Macau	1942	only	-	Nov	17	23:00	0	-
 -Rule	Macau	1943	only	-	Sep	30	23:00	0	S
