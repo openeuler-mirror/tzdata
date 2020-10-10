@@ -1,0 +1,25 @@
+From 81224935459b3abaf9d24e588da7882bd6d6007d Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Thu, 11 Jun 2020 20:32:19 -0700
+Subject: [PATCH 12/47] * NEWS: Fix recent date typo.
+
+---
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 84c87ee..ec73943 100644
+--- a/NEWS
++++ b/NEWS
+@@ -21,7 +21,7 @@ Unreleased, experimental changes
+     stopped at 00:00 for 9 minutes, 21 seconds but this cannot be
+     represented in tzdb, so tzdb instead represents the also-common
+     practice of keeping an old clock running until the new clock
+-    started up.  Similarly for the 1895-03-16 transition.
++    started up.  Similarly for the 1891-03-16 transition.
+     (Thanks to Michael Deckers.)
+ 
+   Changes to code
+-- 
+1.8.3.1
+

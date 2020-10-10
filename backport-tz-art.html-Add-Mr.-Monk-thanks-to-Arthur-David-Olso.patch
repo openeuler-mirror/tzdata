@@ -1,0 +1,29 @@
+From abbe4eeee3ab2db0103df064f6ae99abe019200e Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Mon, 21 Sep 2020 11:03:44 -0700
+Subject: [PATCH 33/47] * tz-art.html: Add Mr. Monk (thanks to Arthur David
+ Olson).
+
+---
+ tz-art.html | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/tz-art.html b/tz-art.html
+index 93a99e4..5de546a 100644
+--- a/tz-art.html
++++ b/tz-art.html
+@@ -109,6 +109,11 @@ premonition in the "We Had a Dream" episode of <em>Medium</em>
+ (originally aired 2007-02-28).
+ </li>
+ <li>
++A criminal's failure to account for the start of daylight saving is pivotal
++in "<a href="https://monk.fandom.com/wiki/Mr._Monk_and_the_Rapper">Mr. Monk
++and the Rapper</a>" (first aired 2007-07-20).
++</li>
++<li>
+ In the <em>30 Rock</em> episode "Anna Howard Shaw Day"
+ (first broadcast 2010-02-11),
+ Jack Donaghy's date realizes that a Geneva-to-New-York business phone call
+-- 
+1.8.3.1
+

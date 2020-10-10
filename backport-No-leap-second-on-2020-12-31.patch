@@ -1,0 +1,38 @@
+From b04741d80fa8e4a95ca2fd824e5fda45f4887748 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Thu, 9 Jul 2020 12:59:05 -0700
+Subject: [PATCH 19/47] No leap second on 2020-12-31
+
+* leap-seconds.list: Update file from NIST, retrieved from
+ftp://ftp.nist.gov/pub/time/leap-seconds.list in ASCII mode.
+---
+ leap-seconds.list | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/leap-seconds.list b/leap-seconds.list
+index ac153da..e897a86 100644
+--- a/leap-seconds.list
++++ b/leap-seconds.list
+@@ -204,10 +204,10 @@
+ #	current -- the update time stamp, the data and the name of the file
+ #	will not change.
+ #
+-#	Updated through IERS Bulletin C59
+-#	File expires on:  28 December 2020
++#	Updated through IERS Bulletin C60
++#	File expires on:  28 June 2021
+ #
+-#@	3818102400
++#@	3833827200
+ #
+ 2272060800	10	# 1 Jan 1972
+ 2287785600	11	# 1 Jul 1972
+@@ -252,4 +252,4 @@
+ #	the hash line is also ignored in the
+ #	computation.
+ #
+-#h	a1c168ae 27c79a7d 9dddcfc3 bcfe616b 2e2c44ea
++#h 	064356a8 39268b92 76e4d5ef 3e22fae1 0cca529c
+-- 
+1.8.3.1
+

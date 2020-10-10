@@ -1,0 +1,26 @@
+From cb2d288ae0bb3aa5fb7cc94480ea955ff76bd183 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Mon, 7 Sep 2020 13:07:58 -0700
+Subject: [PATCH 31/47] * tz-link.html: Cite TZDIST list.  (Thanks to Michael
+ Douglass.)
+
+---
+ tz-link.html | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/tz-link.html b/tz-link.html
+index 6dcb654..dfdaece 100644
+--- a/tz-link.html
++++ b/tz-link.html
+@@ -345,6 +345,8 @@ href="https://tools.ietf.org/html/rfc7808">TZDIST</a>
+ along with <a href="https://tools.ietf.org/html/rfc7809">CalDAV</a>
+ (Internet <abbr>RFC</abbr> 7809), a calendar access protocol for
+ transferring time zone data by reference.
++<a href="https://devguide.calconnect.org/Time-Zones/TZDS/">TZDIST
++implementations</a> are available.
+ The <a href="https://www.ietf.org/mailman/listinfo/tzdist-bis">tzdist-bis
+ mailing list</a> discussed the Internet draft <a
+ id="TZDIST-Geolocate"
+-- 
+1.8.3.1
+
