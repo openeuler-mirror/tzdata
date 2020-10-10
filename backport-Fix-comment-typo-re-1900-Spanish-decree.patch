@@ -1,0 +1,26 @@
+From 243ae070942fb4809206969f9838cb60da6b813f Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Thu, 28 May 2020 12:03:18 -0700
+Subject: [PATCH 05/47] Fix comment typo re 1900 Spanish decree
+
+* europe: Fix date typo. (Thanks to Josep Lladonosa Capell.)
+---
+ europe | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/europe b/europe
+index 91949d6..698a7ba 100644
+--- a/europe
++++ b/europe
+@@ -3445,7 +3445,7 @@ Link Europe/Prague Europe/Bratislava
+ # fallback transition from the next day's 00:59... to 00:00.
+ 
+ # From Michael Deckers (2016-12-15):
+-# The Royal Decree of 1900-06-26 quoted by Planesas, online at
++# The Royal Decree of 1900-07-26 quoted by Planesas, online at
+ # https://www.boe.es/datos/pdfs/BOE//1900/209/A00383-00384.pdf
+ # says in its article 5 (my translation):
+ # These dispositions will enter into force beginning with the
+-- 
+1.8.3.1
+

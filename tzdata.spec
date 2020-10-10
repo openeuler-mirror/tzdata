@@ -1,11 +1,59 @@
 Name:		tzdata
 Version:	2020a
-Release:	1
+Release:	2
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
 Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
+
+Patch6001:	backport-Remove-tzsetwall.patch
+Patch6002:	backport-Use-bold-for-command-and-func-names-in-man-pages.patch
+Patch6003:	backport-Mention-TimeZoneDB-s-CSV-and-SQL-files.patch
+Patch6004:	backport-More-Ruthenia-replacement.patch
+Patch6005:	backport-Fix-comment-typo-re-1900-Spanish-decree.patch
+Patch6006:	backport-Predict-Morocco-spring-forward-after-Eid-al-Fitr.patch
+Patch6007:	backport-Fix-Hungarian-transitions-1918-1983.patch
+Patch6008:	backport-Improve-1890-Hungarian-transition.patch
+Patch6009:	backport-europe-Add-Hungaricana-URLs-thanks-to-G-za-Ny-ry.patch
+Patch6010:	backport-French-clocks-stopped-for-9-21-on-1911-03-11.patch
+Patch6011:	backport-Further-fixes-to-1891-and-1911-French-transitions.patch
+Patch6012:	backport-NEWS-Fix-recent-date-typo.patch
+Patch6013:	backport-Go-back-to-midnight-transitions-for-France-etc.patch
+Patch6014:	backport-europe-Fix-minor-comment-typos-in-previous-change.patch
+Patch6015:	backport-zic-has-new-l-and-p-options.patch
+Patch6016:	backport-Do-not-install-posixrules-by-default.patch
+Patch6017:	backport-zic-now-defaults-to-b-slim.patch
+Patch6018:	backport-Cite-Mirmalek-on-Martian-timekeeping.patch
+Patch6019:	backport-No-leap-second-on-2020-12-31.patch
+Patch6020:	backport-Fix-leapseconds-comment-when-EXPIRES_LINE.patch
+Patch6021:	backport-Update-Bahrain-as-per-article-in-The-National.patch
+Patch6022:	backport-backzone-More-commentary-re-1940s-Bahrain.patch
+Patch6023:	backport-Minor-editorial-improvements-for-newstrftime.3.patch
+Patch6024:	backport-strftime-conform-better-to-POSIX.patch
+Patch6025:	backport-date-redo-strftime-buffer-exhaustion-check.patch
+Patch6026:	backport-date-simplify-format-compuation.patch
+Patch6027:	backport-README-Add-a-pointer-to-tz-how-to.html.patch
+Patch6028:	backport-Mention-Intl.DateTimeFormat.patch
+Patch6029:	backport-asia-Cite-Barak-2020-on-Israeli-DST-controversy.patch
+Patch6030:	backport-Cite-Rishi-et-al-in-tz-link.patch
+Patch6031:	backport-tz-link.html-Cite-TZDIST-list.-Thanks-to-Michael-Dou.patch
+Patch6032:	backport-Improve-heads-up-advice.patch
+Patch6033:	backport-tz-art.html-Add-Mr.-Monk-thanks-to-Arthur-David-Olso.patch
+Patch6034:	backport-tz-link.html-Cite-Python-3.9-thanks-to-Matt-Johnson-.patch
+Patch6035:	backport-tz-link.html-Cite-PyPI-tzdata-thanks-to-Paul-Ganssle.patch
+Patch6036:	backport-Yukon-s-change-is-effective-2020-11-01.patch
+Patch6037:	backport-NEWS-Fix-typo-thanks-to-Philip-Paeps.patch
+Patch6038:	backport-Fixes-for-Casey-and-Macquarie.patch
+Patch6039:	backport-antarctica-Antarctica-Casey-Correct-2019-10-transiti.patch
+Patch6040:	backport-Remove-obsolete-file-systemv.patch
+Patch6041:	backport-Drop-support-for-zic-y-Rule-TYPEs-pacificnew.patch
+Patch6042:	backport-Further-update-code-to-match-Link-line-field-names.patch
+Patch6043:	backport-Convert-tz-how-to.html-to-HTML-5.patch
+Patch6044:	backport-Tighten-up-scope-wording.patch
+Patch6045:	backport-NEWS-Fix-Antarctic-seasons-Casey-change-is-past.patch
+Patch6046:	backport-Release-2020b.patch
+Patch6047:	backport-Fiji-observes-DST-from-2020-12-20-to-2021-01-17.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -32,14 +80,7 @@ Source4:	javazic-1.8-37392f2f5d59.tar.xz
 This package contains timezone information for use by Java runtimes.
 
 %prep
-%setup -q -c -a 1
-
-%patch9000 -p1
-%patch9001 -p1
-%patch9002 -p1
-%patch9003 -p1
-%patch9004 -p1
-%patch9005 -p1
+%autosetup -c -a 1 -p1
 
 make VERSION=%{version} tzdata%{version}-rearguard.tar.gz
 tar zxf tzdata%{version}-rearguard.tar.gz
@@ -63,7 +104,7 @@ echo "%{name}%{version}" >> VERSION
 make VERSION=%{version} DATAFORM=rearguard tzdata.zi
 
 FILES="africa antarctica asia australasia europe northamerica southamerica
-       pacificnew etcetera backward"
+       etcetera backward"
 
 mkdir zoneinfo/{,posix,right}
 zic -y ./yearistype -d zoneinfo -L /dev/null -p America/New_York $FILES
@@ -110,6 +151,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Sat Oct 10 2020 liuchao<liuchao173@huawei.com> - 2020a-2
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:sync community patches
+
 * Thu Jun 11 2020 liuchao<liuchao173@huawei.com> - 2020a-1
 - Type:recommended
 - ID:NA

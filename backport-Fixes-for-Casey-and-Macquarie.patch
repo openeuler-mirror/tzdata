@@ -1,0 +1,102 @@
+From 6427fe6c0cca1dc0f8580f8b96348911ad051570 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Thu, 1 Oct 2020 23:59:18 -0700
+Subject: [PATCH 38/47] Fixes for Casey and Macquarie
+
+* NEWS: Mention this.  (Thanks to Steffen Thorsen.)
+* antarctica (Antarctica/Casey): +08 in winter, +11 in summer
+since 2018, too.
+* australasia (Antarctica/Macquarie): Stay in sync with
+Hobart starting in 2011.
+---
+ NEWS        |  9 +++++++++
+ antarctica  | 25 ++++++++++++++++++++-----
+ australasia |  5 +++--
+ 3 files changed, 32 insertions(+), 7 deletions(-)
+
+diff --git a/NEWS b/NEWS
+index df81d55..f0858f8 100644
+--- a/NEWS
++++ b/NEWS
+@@ -5,6 +5,8 @@ Unreleased, experimental changes
+   Briefly:
+     Revised predictions for Morocco's changes starting in 2023.
+     Canada's Yukon changes to -07 on 2020-11-01, not 2020-03-08.
++    Macquarie Island has stayed in sync with Tasmania since 2011.
++    Casey, Antarctica is at +08 in summer and +11 in winter.
+ 
+   Changes to future timestamps
+ 
+@@ -13,6 +15,13 @@ Unreleased, experimental changes
+     (Thanks to Milamber.)  The first altered prediction is for 2023,
+     now predicted to spring-forward on April 30 instead of April 23.
+ 
++  Changes to past and future timestamps
++
++   Casey Station, Antarctica has been using +08 in summer and +11 in
++   winter since 2018.  The next transition is from +08 to +11 on
++   2020-10-04 00:01.  Also, Macquarie Island has been staying in
++   sync with Tasmania since 2011.  (Thanks to Steffen Thorsen.)
++
+   Changes to past and future time zone abbreviations and DST flags
+ 
+     Canada's Yukon, represented by America/Whitehorse and
+diff --git a/antarctica b/antarctica
+index 2059983..94aeb17 100644
+--- a/antarctica
++++ b/antarctica
+@@ -70,15 +70,30 @@
+ # Australian Antarctica Division informed us that Casey changed time
+ # zone to UTC+11 in "the morning of 22nd October 2016".
+ 
++# From Steffen Thorsen (2020-10-02):
++# Based on information we have received from the Australian Antarctic
++# Division, Casey station and Macquarie Island station will move to Tasmanian
++# daylight savings time on Sunday 4 October. This will take effect from 0001
++# hrs on Sunday 4 October 2020 and will mean Casey and Macquarie Island will
++# be on the same time zone as Hobart.  Some past dates too for this 3 hour
++# time change back and forth between UTC+8 and UTC+11 for Casey:
++# - 2018 Oct  7 4:00 - 2019 Mar 17 3:00 - 2019 Oct  6 3:00 - 2020 Mar  8 3:00
++# and now - 2020 Oct  4 0:01
++
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+-Zone Antarctica/Casey	0	-	-00	1969
+-			8:00	-	+08	2009 Oct 18  2:00
++Zone Antarctica/Casey	 0	-	-00	1969
++			 8:00	-	+08	2009 Oct 18  2:00
+ 			11:00	-	+11	2010 Mar  5  2:00
+-			8:00	-	+08	2011 Oct 28  2:00
++			 8:00	-	+08	2011 Oct 28  2:00
+ 			11:00	-	+11	2012 Feb 21 17:00u
+-			8:00	-	+08	2016 Oct 22
++			 8:00	-	+08	2016 Oct 22
+ 			11:00	-	+11	2018 Mar 11  4:00
+-			8:00	-	+08
++			 8:00	-	+08	2018 Oct  7  4:00
++			11:00	-	+11	2019 Mar 17  3:00
++			 8:00	-	+08	2019 Oct  6  3:00
++			11:00	-	+11	2020 Mar  8  3:00
++			 8:00	-	+08	2020 Oct  4  0:01
++			11:00	-	+11
+ Zone Antarctica/Davis	0	-	-00	1957 Jan 13
+ 			7:00	-	+07	1964 Nov
+ 			0	-	-00	1969 Feb
+diff --git a/australasia b/australasia
+index ac44c04..31b3b36 100644
+--- a/australasia
++++ b/australasia
+@@ -252,8 +252,9 @@ Zone Antarctica/Macquarie 0	-	-00	1899 Nov
+ 			10:00	Aus	AE%sT	1919 Apr  1  0:00s
+ 			0	-	-00	1948 Mar 25
+ 			10:00	Aus	AE%sT	1967
+-			10:00	AT	AE%sT	2010 Apr  4  3:00
+-			11:00	-	+11
++			10:00	AT	AE%sT	2010
++			10:00	1:00	AEDT	2011
++			10:00	AT	AE%sT
+ 
+ # Christmas
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+-- 
+1.8.3.1
+

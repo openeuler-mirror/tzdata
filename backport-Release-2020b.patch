@@ -1,0 +1,25 @@
+From 47311d42a3ad6a8afa95d1f63fa8b6bb2710b16e Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Tue, 6 Oct 2020 18:35:04 -0700
+Subject: [PATCH 46/47] Release 2020b
+
+* NEWS: Increase version to 2020b.
+---
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 419bd5c..c77f76d 100644
+--- a/NEWS
++++ b/NEWS
+@@ -1,6 +1,6 @@
+ News for the tz database
+ 
+-Unreleased, experimental changes
++Release 2020b - 2020-10-06 18:35:04 -0700
+ 
+   Briefly:
+     Revised predictions for Morocco's changes starting in 2023.
+-- 
+1.8.3.1
+
