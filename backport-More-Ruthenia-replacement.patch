@@ -1,0 +1,60 @@
+From c6c18a432298874f2fdd4ad90df90d615f5846fa Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Fri, 1 May 2020 13:24:51 -0700
+Subject: [PATCH 04/47] More Ruthenia replacement
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This follows up on an earlier patch in March, which replaced
+“Ruthenia” with “Transcarpathia” but missed a couple of instances.
+* europe: Ruthenia→Transcarpathia in commentary here, too.
+* theory.html: Switch to Europe/Prague as a more easily-understood
+example.
+---
+ europe      |  2 +-
+ theory.html | 10 ++++------
+ 2 files changed, 5 insertions(+), 7 deletions(-)
+
+diff --git a/europe b/europe
+index 5593c60..91949d6 100644
+--- a/europe
++++ b/europe
+@@ -3983,7 +3983,7 @@ Zone Europe/Kiev	2:02:04 -	LMT	1880
+ 			2:00	1:00	EEST	1991 Sep 29  3:00
+ 			2:00	E-Eur	EE%sT	1995
+ 			2:00	EU	EE%sT
+-# Ruthenia used CET 1990/1991.
++# Transcarpathia used CET 1990/1991.
+ # "Uzhhorod" is the transliteration of the Rusyn/Ukrainian pronunciation, but
+ # "Uzhgorod" is more common in English.
+ Zone Europe/Uzhgorod	1:29:12 -	LMT	1890 Oct
+diff --git a/theory.html b/theory.html
+index c0e6f02..ffa3b4d 100644
+--- a/theory.html
++++ b/theory.html
+@@ -115,17 +115,15 @@ Each timezone has a name that uniquely identifies the timezone.
+ Inexperienced users are not expected to select these names unaided.
+ Distributors should provide documentation and/or a simple selection
+ interface that explains each name via a map or via descriptive text like
+-"Ruthenia" instead of the timezone name "<code>Europe/Uzhgorod</code>".
++"Czech Republic" instead of the timezone name "<code>Europe/Prague</code>".
+ If geolocation information is available, a selection interface can
+ locate the user on a timezone map or prioritize names that are
+ geographically close. For an example selection interface, see the
+ <code>tzselect</code> program in the <code><abbr>tz</abbr></code> code.
+-The <a href="http://cldr.unicode.org/">Unicode Common Locale Data
++The <a href="http://cldr.unicode.org">Unicode Common Locale Data
+ Repository</a> contains data that may be useful for other selection
+-interfaces; it maps timezone names like <code>Europe/Uzhgorod</code>
+-to CLDR names like <code>uauzh</code> which are in turn mapped to
+-locale-dependent strings like "Uzhhorod", "Ungvár", "Ужгород", and
+-"乌日哥罗德".
++interfaces; it maps timezone names like <code>Europe/Prague</code> to
++locale-dependent strings like "Prague", "Praha", "Прага", and "布拉格".
+ </p>
+ 
+ <p>
+-- 
+1.8.3.1
+
