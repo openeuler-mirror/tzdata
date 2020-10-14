@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020a
-Release:	2
+Release:	3
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -56,6 +56,10 @@ Patch6044:	backport-Tighten-up-scope-wording.patch
 Patch6045:	backport-NEWS-Fix-Antarctic-seasons-Casey-change-is-past.patch
 Patch6046:	backport-Release-2020b.patch
 Patch6047:	backport-Fiji-observes-DST-from-2020-12-20-to-2021-01-17.patch
+Patch6048:      backport-europe-Hungary-URL-comments-thanks-to-Michael-Decker.patch
+Patch6049:      backport-ziguard.awk-Add-limitations-commentary.patch
+Patch6050:      backport-Put-dummy-pacificnew-into-rearguard-tarball.patch
+Patch6051:      backport-europe-Hungary-Add-more-URLs-thanks-to-G-za-Ny-ry.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -151,6 +155,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Oct 14 2020 liuchao<liuchao173@huawei.com> - 2020a-3
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:backport community patches
+
 * Sat Oct 10 2020 liuchao<liuchao173@huawei.com> - 2020a-2
 - Type:recommended
 - CVE:NA
