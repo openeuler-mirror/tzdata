@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020b
-Release:	1
+Release:	2
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -10,6 +10,10 @@ Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
 
 Patch6000:	backport-Fiji-observes-DST-from-2020-12-20-to-2021-01-17.patch
+Patch6001:	backport-europe-Hungary-URL-comments-thanks-to-Michael-Decker.patch
+Patch6002:	backport-ziguard.awk-Add-limitations-commentary.patch
+Patch6003:	backport-Put-dummy-pacificnew-into-rearguard-tarball.patch
+Patch6004:	backport-europe-Hungary-Add-more-URLs-thanks-to-G-za-Ny-ry.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -105,6 +109,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Oct 14 2020 liuchao<liuchao173@huawei.com> - 2020b-2
+- backport community patches
+
 * Sat Oct 10 2020 liuchao<liuchao173@huawei.com> - 2020b-1
 - Upgrade to 2020b
 
