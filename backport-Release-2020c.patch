@@ -1,0 +1,25 @@
+From ab21ad9710b88f28995b7ed47c6efda47ffb1be5 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Fri, 16 Oct 2020 11:15:53 -0700
+Subject: [PATCH 1/7] Release 2020c
+
+* NEWS: Increase version to 2020c.
+---
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 87d68d9..25cf8cb 100644
+--- a/NEWS
++++ b/NEWS
+@@ -1,6 +1,6 @@
+ News for the tz database
+ 
+-Unreleased, experimental changes
++Release 2020c - 2020-10-16 11:15:53 -0700
+ 
+   Briefly:
+     Fiji starts DST later than usual, on 2020-12-20.
+-- 
+1.8.3.1
+
