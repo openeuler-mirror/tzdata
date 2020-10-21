@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020a
-Release:	3
+Release:	4
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -58,6 +58,13 @@ Patch6048:	backport-europe-Hungary-URL-comments-thanks-to-Michael-Decker.patch
 Patch6049:	backport-ziguard.awk-Add-limitations-commentary.patch
 Patch6050:	backport-Put-dummy-pacificnew-into-rearguard-tarball.patch
 Patch6051:	backport-europe-Hungary-Add-more-URLs-thanks-to-G-za-Ny-ry.patch
+Patch6052:	backport-Release-2020c.patch
+Patch6053:	backport-Update-Danish-URLs.patch
+Patch6054:	backport-Cite-Tom-Scott-on-Danish-time.patch
+Patch6055:	backport-Port-make-rearguard_tarballs-to-macOS.patch
+Patch6056:	backport-Improve-TZUpdater-and-Python-links.patch
+Patch6057:	backport-Fail-on-ZIC_BLOAT_DEFAULT-typo.patch
+Patch6058:	backport-Palestine-ends-DST-on-2020-10-24.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -155,6 +162,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Wed Oct 21 2020 liuchao<liuchao173@huawei.com> - 2020a-4
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:backport community patches
+
 * Wed Oct 14 2020 liuchao<liuchao173@huawei.com> - 2020a-3
 - Type:recommended
 - CVE:NA
