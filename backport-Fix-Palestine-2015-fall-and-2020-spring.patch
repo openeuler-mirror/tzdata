@@ -1,0 +1,116 @@
+From b80ed1696b6cd868e26b0246f35ce3347ef6b4dc Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Wed, 21 Oct 2020 08:55:04 -0700
+Subject: [PATCH] Fix Palestine 2015 fall and 2020 spring
+
+* NEWS: Mention this.
+* asia (Palestine): Correct transitions for 2015-10-23 (at 01:00,
+not 00:00) and spring 2020 (on March 28, not March 27).  Thanks to
+Pierre Cashon.  Alter future spring transitions accordingly; these
+are guesswork anyway, so make them more consistent with fall.
+Clean up some of the past "only" lines, since really just the
+dates are known.
+---
+ NEWS | 20 ++++++++++----------
+ asia | 29 ++++++++++++++++++++---------
+ 2 files changed, 30 insertions(+), 19 deletions(-)
+
+diff --git a/NEWS b/NEWS
+index 4d653dc..66a579d 100644
+--- a/NEWS
++++ b/NEWS
+@@ -5,17 +5,17 @@ Unreleased, experimental changes
+   Briefly:
+     Palestine ends DST earlier than predicted, on 2020-10-24.
+ 
+-  Changes to future timestamps
+-
+-    Palestine ends DST on 2020-10-24 at 01:00, instead of 2020-10-31 as
+-    previously predicted.  (Thanks to Sharef Mustafa.)  This affects
+-    Asia/Gaza and Asia/Hebron.  Assume future fall transitions will be
+-    on the Saturday preceding October's last Sunday.
+-
+-  Changes to past timestamps
++  Changes to past and future timestamps
+ 
+-    Palestine's 2019-10-26 fall-back was at 00:00, not 01:00.  (Thanks
+-    to Steffen Thorsen.)
++    Palestine ends DST on 2020-10-24 at 01:00, instead of 2020-10-31
++    as previously predicted (thanks to Sharef Mustafa.)  Its
++    2019-10-26 fall-back was at 00:00, not 01:00 (thanks to Steffen
++    Thorsen.)  Its 2015-10-23 transition was at 01:00 not 00:00, and
++    its spring 2020 transition was on March 28 at 00:00, not March 27
++    (thanks to Pierre Cashon.)  This affects Asia/Gaza and
++    Asia/Hebron.  Assume future spring and fall transitions will be on
++    the Saturday preceding the last Sunday of March and October,
++    respectively.
+ 
+ 
+ Release 2020c - 2020-10-16 11:15:53 -0700
+diff --git a/asia b/asia
+index 1c2d3eb..3ebfcb4 100644
+--- a/asia
++++ b/asia
+@@ -3239,14 +3239,23 @@ Zone	Asia/Karachi	4:28:12 -	LMT	1907
+ # shall [end] on Oct 24th 2020 at 01:00AM by delaying the clock by 60 minutes.
+ # http://www.palestinecabinet.gov.ps/portal/Meeting/Details/51584
+ 
+-# From Paul Eggert (2019-04-10):
+-# For now, guess spring-ahead transitions are March's last Friday at 00:00.
+-#
+ # From Tim Parenti (2020-10-20):
+ # Predict future fall transitions at 01:00 on the Saturday preceding October's
+ # last Sunday (i.e., Sat>=24).  This is consistent with our predictions since
+ # 2016, although the time of the change differed slightly in 2019.
+ 
++# From Pierre Cashon (2020-10-20):
++# The summer time this year started on March 28 at 00:00.
++# https://wafa.ps/ar_page.aspx?id=GveQNZa872839351758aGveQNZ
++# http://www.palestinecabinet.gov.ps/portal/meeting/details/50284
++# The winter time in 2015 started on October 23 at 01:00.
++# https://wafa.ps/ar_page.aspx?id=CgpCdYa670694628582aCgpCdY
++# http://www.palestinecabinet.gov.ps/portal/meeting/details/27583
++#
++# From Paul Eggert (2019-04-10):
++# For now, guess spring-ahead transitions are at 00:00 on the Saturday
++# preceding March's last Sunday (i.e., Sat>=24).
++
+ # Rule	NAME	FROM	TO	-	IN	ON	AT	SAVE	LETTER/S
+ Rule EgyptAsia	1957	only	-	May	10	0:00	1:00	S
+ Rule EgyptAsia	1957	1958	-	Oct	 1	0:00	0	-
+@@ -3261,10 +3270,10 @@ Rule Palestine	2004	only	-	Oct	 1	1:00	0	-
+ Rule Palestine	2005	only	-	Oct	 4	2:00	0	-
+ Rule Palestine	2006	2007	-	Apr	 1	0:00	1:00	S
+ Rule Palestine	2006	only	-	Sep	22	0:00	0	-
+-Rule Palestine	2007	only	-	Sep	Thu>=8	2:00	0	-
++Rule Palestine	2007	only	-	Sep	13	2:00	0	-
+ Rule Palestine	2008	2009	-	Mar	lastFri	0:00	1:00	S
+ Rule Palestine	2008	only	-	Sep	 1	0:00	0	-
+-Rule Palestine	2009	only	-	Sep	Fri>=1	1:00	0	-
++Rule Palestine	2009	only	-	Sep	 4	1:00	0	-
+ Rule Palestine	2010	only	-	Mar	26	0:00	1:00	S
+ Rule Palestine	2010	only	-	Aug	11	0:00	0	-
+ Rule Palestine	2011	only	-	Apr	 1	0:01	1:00	S
+@@ -3273,13 +3282,15 @@ Rule Palestine	2011	only	-	Aug	30	0:00	1:00	S
+ Rule Palestine	2011	only	-	Sep	30	0:00	0	-
+ Rule Palestine	2012	2014	-	Mar	lastThu	24:00	1:00	S
+ Rule Palestine	2012	only	-	Sep	21	1:00	0	-
+-Rule Palestine	2013	only	-	Sep	Fri>=21	0:00	0	-
+-Rule Palestine	2014	2015	-	Oct	Fri>=21	0:00	0	-
+-Rule Palestine	2015	only	-	Mar	lastFri	24:00	1:00	S
++Rule Palestine	2013	only	-	Sep	27	0:00	0	-
++Rule Palestine	2014	only	-	Oct	24	0:00	0	-
++Rule Palestine	2015	only	-	Mar	28	0:00	1:00	S
++Rule Palestine	2015	only	-	Oct	23	1:00	0	-
+ Rule Palestine	2016	2018	-	Mar	Sat>=24	1:00	1:00	S
+ Rule Palestine	2016	2018	-	Oct	Sat>=24	1:00	0	-
+-Rule Palestine	2019	max	-	Mar	lastFri	0:00	1:00	S
++Rule Palestine	2019	only	-	Mar	29	0:00	1:00	S
+ Rule Palestine	2019	only	-	Oct	Sat>=24	0:00	0	-
++Rule Palestine	2020	max	-	Mar	Sat>=24	0:00	1:00	S
+ Rule Palestine	2020	max	-	Oct	Sat>=24	1:00	0	-
+ 
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+-- 
+1.8.3.1
+
