@@ -1,0 +1,25 @@
+From 65f1deaca0e16b876d8552a8d541c2ef37f58103 Mon Sep 17 00:00:00 2001
+From: Tim Parenti <tim@timtimeonline.com>
+Date: Wed, 21 Oct 2020 12:16:45 -0400
+Subject: [PATCH] * tz-link.html: Fix typo
+
+---
+ tz-link.html | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tz-link.html b/tz-link.html
+index a0e35a0..10c40b5 100644
+--- a/tz-link.html
++++ b/tz-link.html
+@@ -591,7 +591,7 @@ that represent <code><abbr>tzdb</abbr></code> timezones.
+ Python is freely available under the
+ <a href="https://docs.python.org/3.9/license.html">Python Software Foundation
+ License</a>.
+-A companion <a id="pypi-tzdata"> href="https://pypi.org/">PyPI</a> module
++A companion <a id="pypi-tzdata" href="https://pypi.org/">PyPI</a> module
+ <a href="https://pypi.org/project/tzdata/"><code>tzdata</code></a>
+ supplies TZif data if the underlying system data cannot be found;
+ it is freely available under the Apache License.</li>
+-- 
+1.8.3.1
+
