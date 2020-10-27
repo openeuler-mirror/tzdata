@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020d
-Release:	1
+Release:	2
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -15,6 +15,10 @@ Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
 Patch9004:	remove-El_Aaiun-timezone.patch
 Patch9005:	remove-Israel-timezone.patch
+
+Patch9006:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
+Patch9007:	backport-Port-to-downstream-HP-UX-style-make.patch
+Patch9008:	backport-Use-better-fallback-for-unknown-VERSION.patch
 
 BuildRequires:	gawk glibc perl-interpreter
 BuildRequires:	java-devel
@@ -103,6 +107,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Oct 27 2020 shenkai<shenkai8@huawei.com> - 2020d-2
+- backport community patches
+
 * Thu Oct 22 2020 liuchao<liuchao173@huawei.com> - 2020d-1
 - Upgrade to 2020d
 
