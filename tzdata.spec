@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020a
-Release:	5
+Release:	6
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -68,6 +68,9 @@ Patch6058:	backport-Palestine-ends-DST-on-2020-10-24.patch
 Patch6059:	backport-Fix-Palestine-2015-fall-and-2020-spring.patch
 Patch6060:	backport-tz-link.html-Fix-typo.patch
 Patch6061:	backport-Release-2020d.patch
+Patch6062:	backport-Port-to-downstream-HP-UX-style-make.patch
+Patch6063:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
+Patch6064:	backport-Use-better-fallback-for-unknown-VERSION.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -165,6 +168,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Oct 27 2020 EulerOSWander<314264452@qq.com> - 2020a-6
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:backport upstream patches
+
 * Thu Oct 22 2020 liuchao<liuchao173@huawei.com> - 2020a-5
 - Type:recommended
 - CVE:NA
