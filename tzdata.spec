@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020d
-Release:	2
+Release:	3
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -9,16 +9,19 @@ Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
 
+Patch6000:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
+Patch6001:	backport-Port-to-downstream-HP-UX-style-make.patch
+Patch6002:	backport-Use-better-fallback-for-unknown-VERSION.patch
+Patch6003:	backport-Fix-Kenya-transitions-1908-1960.patch
+Patch6004:	backport-Fix-zone-.tab-Yukon-comment-columns.patch
+Patch6005:	backport-leapseconds-now-says-why-NIST-not-IERS.patch
+
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
 Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
 Patch9004:	remove-El_Aaiun-timezone.patch
 Patch9005:	remove-Israel-timezone.patch
-
-Patch9006:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
-Patch9007:	backport-Port-to-downstream-HP-UX-style-make.patch
-Patch9008:	backport-Use-better-fallback-for-unknown-VERSION.patch
 
 BuildRequires:	gawk glibc perl-interpreter
 BuildRequires:	java-devel
@@ -107,6 +110,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Oct 27 2020 shenkai<shenkai8@huawei.com> - 2020d-3
+- backport community patches
+
 * Tue Oct 27 2020 shenkai<shenkai8@huawei.com> - 2020d-2
 - backport community patches
 
