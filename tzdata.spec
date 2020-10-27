@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020a
-Release:	6
+Release:	7
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -71,6 +71,9 @@ Patch6061:	backport-Release-2020d.patch
 Patch6062:	backport-Port-to-downstream-HP-UX-style-make.patch
 Patch6063:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
 Patch6064:	backport-Use-better-fallback-for-unknown-VERSION.patch
+Patch6065:	backport-Fix-Kenya-transitions-1908-1960.patch
+Patch6066:	backport-leapseconds-now-says-why-NIST-not-IERS.patch
+Patch6067:	backport-Fix-zone-.tab-Yukon-comment-columns.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001: 	remove-country-selection-from-tzselect-steps.patch
@@ -168,6 +171,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Oct 27 2020 EulerOSWander<314264452@qq.com> - 2020a-7
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:backport upstream patches
+
 * Tue Oct 27 2020 EulerOSWander<314264452@qq.com> - 2020a-6
 - Type:recommended
 - CVE:NA
