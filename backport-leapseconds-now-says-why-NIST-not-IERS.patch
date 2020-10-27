@@ -1,0 +1,28 @@
+From b106a6e844a090abc6debb4d3e9496b5231c0fb4 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Sun, 25 Oct 2020 14:43:16 -0700
+Subject: [PATCH 5/6] leapseconds now says why NIST, not IERS
+
+* leapseconds.awk: Output a comment about this.
+---
+ leapseconds.awk | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/leapseconds.awk b/leapseconds.awk
+index 1d3c606..b6c48bc 100755
+--- a/leapseconds.awk
++++ b/leapseconds.awk
+@@ -24,6 +24,10 @@ BEGIN {
+   print "# NIST format leap-seconds.list file, which can be copied from"
+   print "# <ftp://ftp.nist.gov/pub/time/leap-seconds.list>"
+   print "# or <ftp://ftp.boulder.nist.gov/pub/time/leap-seconds.list>."
++  print "# The NIST file is used instead of its IERS upstream counterpart"
++  print "# <https://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list>"
++  print "# because under US law the NIST file is public domain"
++  print "# whereas the IERS file's copyright and license status is unclear."
+   print "# For more about leap-seconds.list, please see"
+   print "# The NTP Timescale and Leap Seconds"
+   print "# <https://www.eecis.udel.edu/~mills/leap.html>."
+-- 
+1.8.3.1
+
