@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020d
-Release:	3
+Release:	4
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -9,15 +9,26 @@ Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
 
-Patch6000:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
-Patch6001:	backport-Port-to-downstream-HP-UX-style-make.patch
+Patch6000:	backport-Port-to-downstream-HP-UX-style-make.patch
+Patch6001:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
 Patch6002:	backport-Use-better-fallback-for-unknown-VERSION.patch
 Patch6003:	backport-Fix-Kenya-transitions-1908-1960.patch
-Patch6004:	backport-Fix-zone-.tab-Yukon-comment-columns.patch
-Patch6005:	backport-leapseconds-now-says-why-NIST-not-IERS.patch
+Patch6004:	backport-leapseconds-now-says-why-NIST-not-IERS.patch
+Patch6005:	backport-Fix-zone-.tab-Yukon-comment-columns.patch
+Patch6006:	backport-Fix-Israel-and-Palestine-transitions-1940-1985.patch
+Patch6007:	backport-Port-make-rearguard_tarballs-to-Solaris-10.patch
+Patch6008:	backport-Fix-several-Belize-transitions-1942-1968.patch
+Patch6009:	backport-Fix-mistaken-Belize-interpretation.patch
+Patch6010:	backport-Document-right-seconds-better.patch
+Patch6011:	backport-tz-link.html-Use-abbr-more-systematically.patch
+Patch6012:	backport-Fix-several-pre-1972-transitions-for-Australia.patch
+Patch6013:	backport-Fix-several-pre-1957-transitions-for-Bermuda.patch
+Patch6014:	backport-Fix-several-pre-1957-transitions-for-Ghana.patch
+Patch6015:	backport-northamerica-Add-URL-for-Yukon-OIC-1980-02.patch
+Patch6016:	backport-Volgograd-switches-from-04-to-03-on-12-20-02-00.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
-Patch9001: 	remove-country-selection-from-tzselect-steps.patch
+Patch9001:	remove-country-selection-from-tzselect-steps.patch
 Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
 Patch9004:	remove-El_Aaiun-timezone.patch
@@ -110,6 +121,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Mon Nov 30 2020 liuchao<liuchao173@huawei.com> - 2020d-4
+- backport community patches
+
 * Tue Oct 27 2020 shenkai<shenkai8@huawei.com> - 2020d-3
 - backport community patches
 
