@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020a
-Release:	7
+Release:	8
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -74,9 +74,20 @@ Patch6064:	backport-Use-better-fallback-for-unknown-VERSION.patch
 Patch6065:	backport-Fix-Kenya-transitions-1908-1960.patch
 Patch6066:	backport-leapseconds-now-says-why-NIST-not-IERS.patch
 Patch6067:	backport-Fix-zone-.tab-Yukon-comment-columns.patch
+Patch6068:	backport-Fix-Israel-and-Palestine-transitions-1940-1985.patch
+Patch6069:	backport-Port-make-rearguard_tarballs-to-Solaris-10.patch
+Patch6070:	backport-Fix-several-Belize-transitions-1942-1968.patch
+Patch6071:	backport-Fix-mistaken-Belize-interpretation.patch
+Patch6072:	backport-Document-right-seconds-better.patch
+Patch6073:	backport-tz-link.html-Use-abbr-more-systematically.patch
+Patch6074:	backport-Fix-several-pre-1972-transitions-for-Australia.patch
+Patch6075:	backport-Fix-several-pre-1957-transitions-for-Bermuda.patch
+Patch6076:	backport-Fix-several-pre-1957-transitions-for-Ghana.patch
+Patch6077:	backport-northamerica-Add-URL-for-Yukon-OIC-1980-02.patch
+Patch6078:	backport-Volgograd-switches-from-04-to-03-on-12-20-02-00.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
-Patch9001: 	remove-country-selection-from-tzselect-steps.patch
+Patch9001:	remove-country-selection-from-tzselect-steps.patch
 Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
 Patch9004:	remove-El_Aaiun-timezone.patch
@@ -171,6 +182,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Mon Nov 30 2020 liuchao<liuchao173@huawei.com> - 2020a-8
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:backport community patches
+
 * Tue Oct 27 2020 EulerOSWander<314264452@qq.com> - 2020a-7
 - Type:recommended
 - CVE:NA
