@@ -1,0 +1,39 @@
+From cd1769fe64ca8931d17016138399f31d509b1bec Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Wed, 2 Dec 2020 11:33:32 -0800
+Subject: [PATCH] Fix Ghana again, for 1942 through 1946
+
+(Thanks to P Chan.)
+* africa (Ghana, Africa/Accra): Standard time was +0030 from
+1942 through 1946.
+---
+ africa | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/africa b/africa
+index 429f783..27c987a 100644
+--- a/africa
++++ b/africa
+@@ -456,16 +456,16 @@ Zone	Africa/Cairo	2:05:09 -	LMT	1900 Oct
+ 
+ # Rule	NAME	FROM	TO	-	IN	ON	AT	SAVE	LETTER/S
+ Rule	Ghana	1919	only	-	Nov	24	0:00	0:20	+0020
+-Rule	Ghana	1920	1946	-	Jan	 1	2:00	0	GMT
++Rule	Ghana	1920	1942	-	Jan	 1	2:00	0	GMT
+ Rule	Ghana	1920	1939	-	Sep	 1	2:00	0:20	+0020
+-Rule	Ghana	1940	1945	-	May	 1	2:00	0:20	+0020
++Rule	Ghana	1940	1941	-	May	 1	2:00	0:20	+0020
+ Rule	Ghana	1950	1955	-	Sep	 1	2:00	0:30	+0030
+ Rule	Ghana	1951	1956	-	Jan	 1	2:00	0	GMT
+ 
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+ Zone	Africa/Accra	-0:00:52 -	LMT	1915 Nov  2
+ 			 0:00	Ghana	%s	1942 Feb  8
+-			 0:30	-	+0030   1942 Oct 24
++			 0:30	-	+0030	1946 Jan  6
+ 			 0:00	Ghana	%s
+ 
+ # Guinea
+-- 
+1.8.3.1
+
