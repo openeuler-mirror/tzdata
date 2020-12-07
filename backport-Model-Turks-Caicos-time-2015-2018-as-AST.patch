@@ -1,0 +1,97 @@
+From b980f1cac5121f702eb6b0cc679d960e8a275a3f Mon Sep 17 00:00:00 2001
+From: Tim Parenti <tim@timtimeonline.com>
+Date: Sat, 5 Dec 2020 13:39:09 -0500
+Subject: [PATCH] Model Turks & Caicos time 2015-2018 as AST
+
+(Thanks to P Chan.)
+* NEWS: Mention this.
+* northamerica (America/Grand_Turk): Model the year-round observance of
+-04 in the Turks & Caicos Islands as AST from 2015-03 through 2018-03,
+to better match the legislation.  This only affects the abbreviation and
+DST flag 2015-03-08/11-01.  Expand commentary on slight discrepancy with
+the 2018-03-11 return to Eastern Time with US rules.
+---
+ NEWS         |  7 +++++++
+ northamerica | 31 +++++++++++++++++++++++++++----
+ 2 files changed, 34 insertions(+), 4 deletions(-)
+
+diff --git a/NEWS b/NEWS
+index 2182c70..0937d8a 100644
+--- a/NEWS
++++ b/NEWS
+@@ -27,6 +27,13 @@ Unreleased, experimental changes
+     Australia/Currie has been moved to the 'backward' file and its
+     corrected data moved to the 'backzone' file.
+ 
++  Changes to past time zone abbreviations and DST flags
++
++    To better match legislation in Turks and Caicos, the 2015 shift to
++    year-round observance of -04 is now modeled as AST throughout before
++    returning to Eastern Time with US DST in 2018, rather than as
++    maintaining EDT until 2015-11-01.  (Thanks to P Chan.)
++
+ 
+ Release 2020d - 2020-10-21 11:24:13 -0700
+ 
+diff --git a/northamerica b/northamerica
+index d8bb8f8..ddc5759 100644
+--- a/northamerica
++++ b/northamerica
+@@ -3727,7 +3727,7 @@ Zone America/Miquelon	-3:44:40 -	LMT	1911 May 15 # St Pierre
+ # "Eastern Standard Times Begins 2007
+ # Clocks are set back one hour at 2:00 a.m. local Daylight Saving Time"
+ # indicating that the normal ET rules are followed.
+-#
++
+ # From Paul Eggert (2014-08-19):
+ # The 2014-08-13 Cabinet meeting decided to stay on UT -04 year-round.  See:
+ # http://tcweeklynews.com/daylight-savings-time-to-be-maintained-p5353-127.htm
+@@ -3742,19 +3742,42 @@ Zone America/Miquelon	-3:44:40 -	LMT	1911 May 15 # St Pierre
+ # during the summer months and Standard Time, also known as Local
+ # Time, during the winter months with effect from April 2018 ...
+ # https://www.gov.uk/government/news/turks-and-caicos-post-cabinet-meeting-statement--3
+-#
+ # From Paul Eggert (2017-08-26):
+ # The date of effect of the spring 2018 change appears to be March 11,
+ # which makes more sense.  See: Hamilton D. Time change back
+ # by March 2018 for TCI. Magnetic Media. 2017-08-25.
+ # http://magneticmediatv.com/2017/08/time-change-back-by-march-2018-for-tci/
+ #
++# From P Chan (2020-11-27):
++# Standard Time Declaration Order 2015 (L.N. 15/2015)
++# http://online.fliphtml5.com/fizd/czin/#p=2
++#
++# Standard Time Declaration Order 2017 (L.N. 31/2017)
++# http://online.fliphtml5.com/fizd/dmcu/#p=2
++#
++# From Tim Parenti (2020-12-05):
++# Although L.N. 31/2017 reads that it "shall come into operation at 2:00 a.m.
++# on 11th March 2018", a precise interpretation here poses some problems.  The
++# order states that "the standard time to be observed throughout the Turks and
++# Caicos Islands shall be the same time zone as the Eastern United States of
++# America" and further clarifies "[f]or the avoidance of doubt" that it
++# "applies to the Eastern Standard Time as well as any changes thereto for
++# Daylight Saving Time."  However, as clocks in Turks and Caicos approached
++# 02:00 -04, and thus the declared implementation time, it was still 01:00 EST
++# (-05), as DST in the Eastern US would not start until an hour later.
++#
++# Since it is unlikely that those on the islands switched their clocks twice in
++# the span of an hour, we assume instead that the adoption of EDT actually took
++# effect once clocks in the Eastern US had sprung forward, from 03:00 -04.
++# This discrepancy only affects the time zone abbreviation and DST flag for the
++# intervening hour, not wall clock times, as -04 was maintained throughout.
++
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+ Zone America/Grand_Turk	-4:44:32 -	LMT	1890
+ 			-5:07:10 -	KMT	1912 Feb # Kingston Mean Time
+ 			-5:00	-	EST	1979
+-			-5:00	US	E%sT	2015 Nov Sun>=1 2:00
+-			-4:00	-	AST	2018 Mar 11 3:00
++			-5:00	US	E%sT	2015 Mar  8  2:00
++			-4:00	-	AST	2018 Mar 11  3:00
+ 			-5:00	US	E%sT
+ 
+ # British Virgin Is
+-- 
+1.8.3.1
+
