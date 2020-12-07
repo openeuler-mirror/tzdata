@@ -1,0 +1,27 @@
+From 6e7558f1905deb07842fa329c54e0788914138aa Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Tue, 1 Dec 2020 14:48:43 -0800
+Subject: [PATCH] Fix Ghana typo for 1919/1920
+
+* africa (Ghana): Fix typo in previous change to these rules.
+(Thanks to P Chan.)
+---
+ africa | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/africa b/africa
+index 285688d..85644f5 100644
+--- a/africa
++++ b/africa
+@@ -455,7 +455,7 @@ Zone	Africa/Cairo	2:05:09 -	LMT	1900 Oct
+ # This Ordinance abolished DST.
+ 
+ # Rule	NAME	FROM	TO	-	IN	ON	AT	SAVE	LETTER/S
+-Rule	Ghana	1920	only	-	Nov	24	0:00	0:20	+0020
++Rule	Ghana	1919	only	-	Nov	24	0:00	0:20	+0020
+ Rule	Ghana	1920	1946	-	Jan	 1	2:00	0	GMT
+ Rule	Ghana	1921	1939	-	Sep	 1	2:00	0:20	+0020
+ Rule	Ghana	1940	1945	-	May	 1	2:00	0:20	+0020
+-- 
+1.8.3.1
+
