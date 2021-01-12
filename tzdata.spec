@@ -1,6 +1,6 @@
 Name:		tzdata
-Version:	2020d
-Release:	5
+Version:	2020f
+Release:	1
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -9,33 +9,7 @@ Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
 
-Patch6000:	backport-Port-to-downstream-HP-UX-style-make.patch
-Patch6001:	backport-etcetera-Update-comment-in-the-light-of-Neil-Fuller-.patch
-Patch6002:	backport-Use-better-fallback-for-unknown-VERSION.patch
-Patch6003:	backport-Fix-Kenya-transitions-1908-1960.patch
-Patch6004:	backport-leapseconds-now-says-why-NIST-not-IERS.patch
-Patch6005:	backport-Fix-zone-.tab-Yukon-comment-columns.patch
-Patch6006:	backport-Fix-Israel-and-Palestine-transitions-1940-1985.patch
-Patch6007:	backport-Port-make-rearguard_tarballs-to-Solaris-10.patch
-Patch6008:	backport-Fix-several-Belize-transitions-1942-1968.patch
-Patch6009:	backport-Fix-mistaken-Belize-interpretation.patch
-Patch6010:	backport-Document-right-seconds-better.patch
-Patch6011:	backport-tz-link.html-Use-abbr-more-systematically.patch
-Patch6012:	backport-Fix-several-pre-1972-transitions-for-Australia.patch
-Patch6013:	backport-Fix-several-pre-1957-transitions-for-Bermuda.patch
-Patch6014:	backport-Fix-several-pre-1957-transitions-for-Ghana.patch
-Patch6015:	backport-northamerica-Add-URL-for-Yukon-OIC-1980-02.patch
-Patch6016:	backport-Volgograd-switches-from-04-to-03-on-12-20-02-00.patch
-Patch6017:	backport-Fix-Ghana-typo-for-1919-1920.patch
-Patch6018:	backport-Re-fix-Ghana-typo-for-1919-1920.patch
-Patch6019:	backport-Fix-several-pre-1946-transitions-for-Bahamas.patch
-Patch6020:	backport-Fix-Volgograd-label-in-zone-zone1970-.tab.patch
-Patch6021:	backport-Fix-Ghana-again-for-1942-through-1946.patch
-Patch6022:	backport-Fix-some-errors-in-recent-Bahamas-changes.patch
-Patch6023:	backport-Volgograd-change-likely-December-27-not-20.patch
-Patch6024:	backport-Fix-Vanuatu-DST-in-1973-1974-and-1984-transition.patch
-Patch6025:	backport-Model-Turks-Caicos-time-2015-2018-as-AST.patch
-Patch6026:	backport-Seychelles-switched-from-LMT-to-04-on-1907-01-01.patch
+Patch6000:	backport-No-leap-second-on-2021-06-30.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001:	remove-country-selection-from-tzselect-steps.patch
@@ -131,6 +105,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Jan 12 2021 liuchao<liuchao173@huawei.com> - 2020f-1
+- Upgrade to 2020f
+
 * Mon Dec 7 2020 liuchao<liuchao173@huawei.com> - 2020d-5
 - backport community patches
 
