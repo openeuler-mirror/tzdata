@@ -1,0 +1,25 @@
+From 846c3ac7abc246094dd754ac6dc90423148a5107 Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Tue, 29 Dec 2020 00:17:46 -0800
+Subject: [PATCH] Release 2020f
+
+* NEWS: Increase version to 2020f.
+---
+ NEWS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index a0863fb..19470cc 100644
+--- a/NEWS
++++ b/NEWS
+@@ -1,6 +1,6 @@
+ News for the tz database
+ 
+-Unreleased, experimental changes
++Release 2020f - 2020-12-29 00:17:46 -0800
+ 
+   Change to build procedure
+ 
+-- 
+1.8.3.1
+

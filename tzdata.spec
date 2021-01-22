@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020a
-Release:	8
+Release:	9
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -95,9 +95,19 @@ Patch6085:	backport-Volgograd-change-likely-December-27-not-20.patch
 Patch6086:	backport-Fix-Vanuatu-DST-in-1973-1974-and-1984-transition.patch
 Patch6087:	backport-Model-Turks-Caicos-time-2015-2018-as-AST.patch
 Patch6088:	backport-Seychelles-switched-from-LMT-to-04-on-1907-01-01.patch
+Patch6089:	backport-Document-zic-coalescing-zone-DST-transitions.patch
+Patch6090:	backport-Fix-NEWS-typo.patch
+Patch6091:	backport-Correct-LMT-and-pre-1919-transitions-for-Nigeria.patch
+Patch6092:	backport-Cite-publication-of-Volgograd-change.patch
+Patch6093:	backport-Improve-doc-of-zic-coalescing-zone-DST-transitions.patch
+Patch6094:	backport-Release-2020e.patch
+Patch6095:	backport-Fix-rearguard.zi-corruption-in-2020e.patch
+Patch6096:	backport-Release-2020f.patch
+Patch6097:	backport-No-leap-second-on-2021-06-30.patch
+Patch6098:	backport-South-Sudan-changes-from-03-to-02-on-2021-02-01.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
-Patch9001: 	remove-country-selection-from-tzselect-steps.patch
+Patch9001:	remove-country-selection-from-tzselect-steps.patch
 Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
 Patch9004:	remove-El_Aaiun-timezone.patch
@@ -192,6 +202,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Fri Jan 22 2021 liuchao<liuchao173@huawei.com> - 2020a-9
+- Type:recommended
+- CVE:NA
+- SUG:NA
+- DESC:backport community patches
+
 * Thu Dec 17 2020 liuchao<liuchao173@huawei.com> - 2020a-8
 - Type:recommended
 - CVE:NA
