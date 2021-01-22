@@ -1,0 +1,57 @@
+From 7d7a4fb5bdaf778d48903b56d4200dd84282238e Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Tue, 19 Jan 2021 13:17:42 -0800
+Subject: [PATCH] South Sudan changes from +03 to +02 on 2021-02-01.
+
+(Thanks to Steffen Thorsen.)
+* NEWS: Mention this.
+* africa (Africa/Juba): Implement it.
+---
+ NEWS   | 7 +++++++
+ africa | 8 +++++++-
+ 2 files changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/NEWS b/NEWS
+index 19470cc..13c87b0 100644
+--- a/NEWS
++++ b/NEWS
+@@ -2,6 +2,13 @@ News for the tz database
+ 
+ Release 2020f - 2020-12-29 00:17:46 -0800
+ 
++  Briefly:
++    South Sudan changes from +03 to +02 on 2021-02-01.
++
++  Changes to future timestamps
++    South Sudan changes from +03 to +02 on 2021-02-01 at 00:00.
++    (Thanks to Steffen Thorsen.)
++
+   Change to build procedure
+ 
+     'make rearguard_tarballs' no longer generates a bad rearguard.zi,
+diff --git a/africa b/africa
+index 59cf501..28168cf 100644
+--- a/africa
++++ b/africa
+@@ -1527,11 +1527,17 @@ Zone	Africa/Khartoum	2:10:08 -	LMT	1931
+ 			3:00	-	EAT	2017 Nov  1
+ 			2:00	-	CAT
+ 
++# From Steffen Thorsen (2021-01-18):
++# "South Sudan will change its time zone by setting the clock back 1
++# hour on February 1, 2021...."
++# from https://eyeradio.org/south-sudan-adopts-new-time-zone-makuei/
++
+ # South Sudan
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+ Zone	Africa/Juba	2:06:28 -	LMT	1931
+ 			2:00	Sudan	CA%sT	2000 Jan 15 12:00
+-			3:00	-	EAT
++			3:00	-	EAT	2021 Feb  1 00:00
++			2:00	-	CAT
+ 
+ # Tanzania
+ # See Africa/Nairobi.
+-- 
+1.8.3.1
+
