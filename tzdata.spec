@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2020f
-Release:	1
+Release:	2
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -10,6 +10,7 @@ Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
 
 Patch6000:	backport-No-leap-second-on-2021-06-30.patch
+Patch6001:	backport-South-Sudan-changes-from-03-to-02-on-2021-02-01.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001:	remove-country-selection-from-tzselect-steps.patch
@@ -105,6 +106,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Fri Jan 22 2021 liuchao<liuchao173@huawei.com> - 2020f-2
+- South Sudan changes from +03 to +02 on 2021-02-01
+
 * Tue Jan 12 2021 liuchao<liuchao173@huawei.com> - 2020f-1
 - Upgrade to 2020f
 
