@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2021a
-Release:	1
+Release:	2
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -103,6 +103,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Mon May 8 2021 liuchao<liuchao173@huawei.com> - 2021a-2
+- Remove useless patches
+
 * Tue Jan 26 2021 liuchao<liuchao173@huawei.com> - 2021a-1
 - Upgrade to 2021a
 
