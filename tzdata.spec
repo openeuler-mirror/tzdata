@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2021a
-Release:	2
+Release:	3
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -15,6 +15,7 @@ Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
 Patch9004:	remove-El_Aaiun-timezone.patch
 Patch9005:	remove-Israel-timezone.patch
+Patch9006:	skip-check_web-testcase.patch
 
 BuildRequires:	gawk glibc perl-interpreter
 BuildRequires:	java-devel
@@ -56,7 +57,7 @@ echo "%{name}%{version}" >> VERSION
 make VERSION=%{version} DATAFORM=rearguard tzdata.zi
 
 FILES="africa antarctica asia australasia europe northamerica southamerica
-       etcetera backward"
+       etcetera backward factory"
 
 mkdir zoneinfo/{,posix,right}
 zic -y ./yearistype -d zoneinfo -L /dev/null -p America/New_York $FILES
@@ -79,6 +80,9 @@ java -classpath javazic-1.8 build.tools.tzdb.TzdbZoneRulesCompiler \
     -srcdir . -dstfile tzdb.dat \
     -verbose \
     $FILES javazic-1.8/tzdata_jdk/gmt javazic-1.8/tzdata_jdk/jdk11_backward
+
+%check
+make check
 
 %install
 
@@ -103,7 +107,10 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
-* Mon May 8 2021 liuchao<liuchao173@huawei.com> - 2021a-2
+* Tue Aug 17 2021 liuchao<liuchao173@huawei.com> - 2021a-3
+- add factory timezone and enbale make check
+
+* Mon Mar 8 2021 liuchao<liuchao173@huawei.com> - 2021a-2
 - Remove useless patches
 
 * Tue Jan 26 2021 liuchao<liuchao173@huawei.com> - 2021a-1
