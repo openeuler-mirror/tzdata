@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2021a
-Release:	2
+Release:	3
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -57,7 +57,7 @@ echo "%{name}%{version}" >> VERSION
 make VERSION=%{version} DATAFORM=rearguard tzdata.zi
 
 FILES="africa antarctica asia australasia europe northamerica southamerica
-       etcetera backward"
+       etcetera backward factory"
 
 mkdir zoneinfo/{,posix,right}
 zic -y ./yearistype -d zoneinfo -L /dev/null -p America/New_York $FILES
@@ -107,6 +107,9 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Tue Aug 17 2021 liuchao<liuchao173@huawei.com> - 2021a-3
+- add factory timezone
+
 * Tue Aug 17 2021 liuchao<liuchao173@huawei.com> - 2021a-2
 - enable make check and skip check_web
 
