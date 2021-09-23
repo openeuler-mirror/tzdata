@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2021a
-Release:	3
+Release:	4
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -8,6 +8,8 @@ Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
 Source2:	javazic.tar.gz
 Source3:	javazic-1.8-37392f2f5d59.tar.xz
+
+Patch6000:	Samoa-no-longer-observes-DST.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001:	remove-country-selection-from-tzselect-steps.patch
@@ -107,6 +109,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Thu Sep 23 2021 liuchao<liuchao173@huawei.com> - 2021a-4
+- Type:bugfix
+- CVE:NA
+- SUG:NA
+- DESC:Samoa no longer observes DST
+
 * Tue Aug 17 2021 liuchao<liuchao173@huawei.com> - 2021a-3
 - add factory timezone and enbale make check
 
