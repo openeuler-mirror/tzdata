@@ -1,0 +1,39 @@
+From 29583c461a9705118560e02e69bb64a0bf2fce0c Mon Sep 17 00:00:00 2001
+From: Paul Eggert <eggert@cs.ucla.edu>
+Date: Mon, 20 Sep 2021 00:23:09 -0700
+Subject: [PATCH] Samoa no longer observes DST
+
+(Thanks to Geoffrey D. Bennett.)
+* NEWS: Mention this.
+* australasia: Last DST transition was April.
+---
+ australasia | 8 ++++++--
+ 1 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/australasia b/australasia
+index c68a445..6fe681b 100644
+--- a/australasia
++++ b/australasia
+@@ -753,13 +753,17 @@ Zone Pacific/Pago_Pago	 12:37:12 -	LMT	1892 Jul  5
+ # From Paul Eggert (2014-07-08):
+ # That web page currently lists transitions for 2012/3 and 2013/4.
+ # Assume the pattern instituted in 2012 will continue indefinitely.
++#
++# From Geoffrey D. Bennett (2021-09-20):
++# https://www.mcil.gov.ws/storage/2021/09/MCIL-Scan_20210920_120553.pdf
++# DST has been cancelled for this year.
+ 
+ # Rule	NAME	FROM	TO	-	IN	ON	AT	SAVE	LETTER/S
+ Rule	WS	2010	only	-	Sep	lastSun	0:00	1	-
+ Rule	WS	2011	only	-	Apr	Sat>=1	4:00	0	-
+ Rule	WS	2011	only	-	Sep	lastSat	3:00	1	-
+-Rule	WS	2012	max	-	Apr	Sun>=1	4:00	0	-
+-Rule	WS	2012	max	-	Sep	lastSun	3:00	1	-
++Rule	WS	2012	2021	-	Apr	Sun>=1	4:00	0	-
++Rule	WS	2012	2020	-	Sep	lastSun	3:00	1	-
+ # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+ Zone Pacific/Apia	 12:33:04 -	LMT	1892 Jul  5
+ 			-11:26:56 -	LMT	1911
+-- 
+2.23.0
+
