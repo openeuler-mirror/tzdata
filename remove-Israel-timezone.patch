@@ -2,9 +2,9 @@ diff --git a/backward b/backward
 index 601977d..107738c 100644
 --- a/backward
 +++ b/backward
-@@ -89,7 +89,6 @@ Link	Etc/GMT			Greenwich
- Link	Asia/Hong_Kong		Hongkong
- Link	Atlantic/Reykjavik	Iceland
+@@ -89,7 +89,6 @@ Link	Africa/Nairobi		Indian/Antananarivo
+ Link	Africa/Nairobi		Indian/Comoro
+ Link	Africa/Nairobi		Indian/Mayotte
  Link	Asia/Tehran		Iran
 -Link	Asia/Jerusalem		Israel
  Link	America/Jamaica		Jamaica
