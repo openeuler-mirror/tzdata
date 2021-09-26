@@ -21,9 +21,9 @@ index e13ae52..348f99e 100644
  Link	America/Denver		Navajo
 -Link	Asia/Shanghai		PRC
 +Link	Asia/Beijing		PRC
+ Link	Pacific/Kanton		Pacific/Enderbury
  Link	Pacific/Honolulu	Pacific/Johnston
- Link	Pacific/Pohnpei		Pacific/Ponape
- Link	Pacific/Pago_Pago	Pacific/Samoa
+ Link	Pacific/Pago_Pago	Pacific/Midway
 diff --git a/zone.tab b/zone.tab
 index 8d056e3..cfd90aa 100644
 --- a/zone.tab
