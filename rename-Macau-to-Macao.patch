@@ -1,25 +1,8 @@
-From e665205e9b11d10e6805b0c4e9c58f726ecd9ccd Mon Sep 17 00:00:00 2001
-From: liuchao <liuchao173@huawei.com>
-Date: Wed, 4 Dec 2019 10:56:22 +0800
-Subject: [PATCH] rename Macau to Macao
- Aomen should be spelled in English as Macao
-
----
- NEWS         | 10 ++++----
- asia         | 70 ++++++++++++++++++++++++++--------------------------
- backward     |  1 -
- iso3166.tab  |  2 +-
- tz-link.html |  4 +--
- zishrink.awk |  2 +-
- zone.tab     |  2 +-
- zone1970.tab |  2 +-
- 8 files changed, 46 insertions(+), 47 deletions(-)
-
 diff --git a/NEWS b/NEWS
-index 8b05f8f..0f386df 100644
+index 321e090..a2db876 100644
 --- a/NEWS
 +++ b/NEWS
-@@ -297,9 +297,9 @@ Release 2018f - 2018-10-18 00:14:18 -0700
+@@ -454,9 +454,9 @@ Release 2018f - 2018-10-18 00:14:18 -0700
      April 10.  Its DST transitions in 1986/91 were at 02:00, not 00:00.
      (Thanks to P Chan.)
  
@@ -32,7 +15,7 @@ index 8b05f8f..0f386df 100644
      observed DST in 1942/79, not 1961/80, and there were several
      errors for transition times and dates.  (Thanks to P Chan.)
  
-@@ -504,7 +504,7 @@ Release 2018d - 2018-03-22 07:05:46 -0700
+@@ -661,7 +661,7 @@ Release 2018d - 2018-03-22 07:05:46 -0700
      This transition was at 00:00 according to the new UT offset, not
      according to the old one.  Also assume that Cape Verde switched on
      the same date as the rest, not in 1907.  This affects
@@ -41,7 +24,7 @@ index 8b05f8f..0f386df 100644
      Atlantic/Cape_Verde, Atlantic/Madeira, and Europe/Lisbon.
      (Thanks to Michael Deckers.)
  
-@@ -994,7 +994,7 @@ Release 2017a - 2017-02-28 00:05:36 -0800
+@@ -1151,7 +1151,7 @@ Release 2017a - 2017-02-28 00:05:36 -0800
      (Atlantic Standard Time had not been standardized yet).  Use "AWT"
      and "APT" instead of the invented abbreviations "CAWT" and "CAPT".
  
@@ -51,10 +34,10 @@ index 8b05f8f..0f386df 100644
      invented abbreviation "JCST" for Japan and Korea before 1938.
  
 diff --git a/asia b/asia
-index 348e2b5..7579a13 100644
+index c631935..225ffb1 100644
 --- a/asia
 +++ b/asia
-@@ -886,12 +886,12 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
+@@ -999,12 +999,12 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
  			9:00	-	JST	1945 Sep 21  1:00
  			8:00	Taiwan	C%sT
  
@@ -69,7 +52,7 @@ index 348e2b5..7579a13 100644
  #   Chinese and Portuguese.  The term "HORÁRIO DE VERÃO" can be used for
  #   searching decrees about summer time.
  # * Archives of Macao
-@@ -900,13 +900,13 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
+@@ -1013,13 +1013,13 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
  # * The Macao Meteorological and Geophysical Bureau have a page listing the
  #   summer time history.  But it is not complete and has some mistakes.
  #   http://www.smg.gov.mo/smg/geophysics/e_t_Summer%20Time.htm
@@ -85,7 +68,7 @@ index 348e2b5..7579a13 100644
  #
  # From LegisMac, here is a list of decrees that changed the time ...
  # [Decree Gazette-no. date; titles omitted in this quotation]
-@@ -985,43 +985,43 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
+@@ -1098,43 +1098,43 @@ Zone	Asia/Taipei	8:06:00 -	LMT	1896 Jan  1
  # between GMT+9 and GMT+10.  Also in 1965 and 1965 the DST ended at 2:30am.
  
  # From Paul Eggert (2018-05-10):
@@ -161,17 +144,17 @@ index 348e2b5..7579a13 100644
  
  ###############################################################################
 diff --git a/backward b/backward
-index b4ae3cf..71a79e2 100644
+index d13e811..601977d 100644
 --- a/backward
 +++ b/backward
-@@ -37,7 +37,6 @@ Link	Asia/Dhaka		Asia/Dacca
- Link	Asia/Shanghai		Asia/Harbin
+@@ -38,7 +38,6 @@ Link	Europe/Istanbul		Asia/Istanbul
  Link	Asia/Urumqi		Asia/Kashgar
  Link	Asia/Kathmandu		Asia/Katmandu
+ Link	Asia/Riyadh		Asia/Kuwait
 -Link	Asia/Macau		Asia/Macao
+ Link	Asia/Dubai		Asia/Muscat
+ Link	Asia/Bangkok		Asia/Phnom_Penh
  Link	Asia/Yangon		Asia/Rangoon
- Link	Asia/Ho_Chi_Minh	Asia/Saigon
- Link	Asia/Jerusalem		Asia/Tel_Aviv
 diff --git a/iso3166.tab b/iso3166.tab
 index a4ff61a..1c53cc0 100644
 --- a/iso3166.tab
@@ -186,10 +169,10 @@ index a4ff61a..1c53cc0 100644
  MQ	Martinique
  MR	Mauritania
 diff --git a/tz-link.html b/tz-link.html
-index 85fc001..538c1d1 100644
+index 1f893f6..7c5cb0a 100644
 --- a/tz-link.html
 +++ b/tz-link.html
-@@ -814,9 +814,9 @@ Chile's official time (in Spanish)</a>.</dd>
+@@ -831,9 +831,9 @@ Chile's official time (in Spanish)</a>.</dd>
  <dd>The Hong Kong Observatory maintains a
  <a href="https://www.hko.gov.hk/en/gts/time/Summertime.htm">history of
   summer time in Hong Kong</a>,
@@ -215,10 +198,10 @@ index 4e187ac..a41382c 100644
    # Use ISO 3166 alpha-2 country codes for remaining names that are countries.
    # This is more systematic, and avoids collisions (e.g., Malta and Moldova).
 diff --git a/zone.tab b/zone.tab
-index 408fcb2..ee58572 100644
+index cfd90aa..8c28f76 100644
 --- a/zone.tab
 +++ b/zone.tab
-@@ -269,7 +269,7 @@ MM	+1647+09610	Asia/Yangon
+@@ -270,7 +270,7 @@ MM	+1647+09610	Asia/Yangon
  MN	+4755+10653	Asia/Ulaanbaatar	Mongolia (most areas)
  MN	+4801+09139	Asia/Hovd	Bayan-Olgiy, Govi-Altai, Hovd, Uvs, Zavkhan
  MN	+4804+11430	Asia/Choibalsan	Dornod, Sukhbaatar
@@ -228,10 +211,10 @@ index 408fcb2..ee58572 100644
  MQ	+1436-06105	America/Martinique
  MR	+1806-01557	Africa/Nouakchott
 diff --git a/zone1970.tab b/zone1970.tab
-index 822ffa1..03ec66b 100644
+index 3d21c92..169feda 100644
 --- a/zone1970.tab
 +++ b/zone1970.tab
-@@ -232,7 +232,7 @@ MM	+1647+09610	Asia/Yangon
+@@ -233,7 +233,7 @@ MM	+1647+09610	Asia/Yangon
  MN	+4755+10653	Asia/Ulaanbaatar	Mongolia (most areas)
  MN	+4801+09139	Asia/Hovd	Bayan-Ölgii, Govi-Altai, Hovd, Uvs, Zavkhan
  MN	+4804+11430	Asia/Choibalsan	Dornod, Sükhbaatar
@@ -240,6 +223,3 @@ index 822ffa1..03ec66b 100644
  MQ	+1436-06105	America/Martinique
  MT	+3554+01431	Europe/Malta
  MU	-2010+05730	Indian/Mauritius
--- 
-2.19.1
-

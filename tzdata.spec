@@ -1,13 +1,11 @@
 Name:		tzdata
-Version:	2021a
-Release:	4
+Version:	2021b
+Release:	1
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
 Source0:	https://data.iana.org/time-zones/releases/tzdata%{version}.tar.gz
 Source1:	https://data.iana.org/time-zones/releases/tzcode%{version}.tar.gz
-
-Patch6000:	Samoa-no-longer-observes-DST.patch
 
 Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001:	remove-country-selection-from-tzselect-steps.patch
@@ -109,6 +107,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Sun Sep 26 2021 liuchao<liuchao173@huawei.com> - 2021b-1
+- Type:bugfix
+- CVE:NA
+- SUG:NA
+- DESC:update to 2021b
+
 * Thu Sep 23 2021 liuchao<liuchao173@huawei.com> - 2021a-4
 - Type:bugfix
 - CVE:NA
