@@ -1,5 +1,5 @@
 Name:		tzdata
-Version:	2021b
+Version:	2021e
 Release:	1
 Summary:	Timezone data
 License:	Public Domain
@@ -107,6 +107,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Fri Oct 29 2021 liuchao<liuchao173@huawei.com> - 2021e-1
+- Type:bugfix
+- CVE:NA
+- SUG:NA
+- DESC:update to 2021e
+
 * Sun Sep 26 2021 liuchao<liuchao173@huawei.com> - 2021b-1
 - Type:bugfix
 - CVE:NA
