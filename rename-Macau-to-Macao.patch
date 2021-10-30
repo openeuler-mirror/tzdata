@@ -147,14 +147,14 @@ diff --git a/backward b/backward
 index d13e811..601977d 100644
 --- a/backward
 +++ b/backward
-@@ -38,7 +38,6 @@ Link	Europe/Istanbul		Asia/Istanbul
+@@ -38,7 +38,6 @@ Link	Asia/Dhaka		Asia/Dacca
+ Link	Asia/Shanghai		Asia/Harbin
  Link	Asia/Urumqi		Asia/Kashgar
  Link	Asia/Kathmandu		Asia/Katmandu
- Link	Asia/Riyadh		Asia/Kuwait
 -Link	Asia/Macau		Asia/Macao
- Link	Asia/Dubai		Asia/Muscat
- Link	Asia/Bangkok		Asia/Phnom_Penh
  Link	Asia/Yangon		Asia/Rangoon
+ Link	Asia/Ho_Chi_Minh	Asia/Saigon
+ Link	Asia/Jerusalem		Asia/Tel_Aviv
 diff --git a/iso3166.tab b/iso3166.tab
 index a4ff61a..1c53cc0 100644
 --- a/iso3166.tab
