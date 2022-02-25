@@ -1,6 +1,6 @@
 Name:		tzdata
 Version:	2021e
-Release:	1
+Release:	2
 Summary:	Timezone data
 License:	Public Domain
 URL:		https://www.iana.org/time-zones
@@ -65,7 +65,7 @@ zic -y ./yearistype -d zoneinfo/posix -L /dev/null $FILES
 zic -y ./yearistype -d zoneinfo/right -L leapseconds $FILES
 
 cd javazic
-javac -source 1.5 -target 1.5 -classpath . `find . -name \*.java`
+javac -source 1.6 -target 1.6 -classpath . `find . -name \*.java`
 cd ..
 
 java -classpath javazic/ rht.tools.javazic.Main -V %{version} \
@@ -73,7 +73,7 @@ java -classpath javazic/ rht.tools.javazic.Main -V %{version} \
   $FILES javazic/tzdata_jdk/gmt javazic/tzdata_jdk/jdk11_backward
 
 cd javazic-1.8
-javac -source 1.7 -target 1.7 -classpath . `find . -name \*.java`
+javac -source 1.8 -target 1.8 -classpath . `find . -name \*.java`
 cd ..
 
 java -classpath javazic-1.8 build.tools.tzdb.TzdbZoneRulesCompiler \
@@ -107,6 +107,12 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Fri Feb 25 2022 liuchao<liuchao173@huawei.com> -2021e-2
+- Type:feature
+- CVE:NA
+- SUG:NA
+- DESC:update jave source to 1.6 and 1.8
+
 * Fri Oct 29 2021 liuchao<liuchao173@huawei.com> - 2021e-1
 - Type:bugfix
 - CVE:NA
