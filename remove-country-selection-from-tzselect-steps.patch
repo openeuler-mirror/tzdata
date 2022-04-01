@@ -2,7 +2,7 @@ diff --git a/tzselect.ksh b/tzselect.ksh
 index 18fce27..7784f2e 100644
 --- a/tzselect.ksh
 +++ b/tzselect.ksh
-@@ -51,7 +51,7 @@ say() {
+@@ -53,7 +53,7 @@ say() {
  
  coord=
  location_limit=10
@@ -11,7 +11,7 @@ index 18fce27..7784f2e 100644
  
  usage="Usage: tzselect [--version] [--help] [-c COORD] [-n LIMIT]
  Select a timezone interactively.
-@@ -398,94 +398,36 @@ while
+@@ -393,94 +393,36 @@ while
  		    '`
  		    ;;
  		*)

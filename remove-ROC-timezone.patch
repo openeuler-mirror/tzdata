@@ -2,7 +2,7 @@ diff --git a/backward b/backward
 index 348f99e..d13e811 100644
 --- a/backward
 +++ b/backward
-@@ -109,7 +109,6 @@ Link	Pacific/Chuuk		Pacific/Truk
+@@ -113,7 +113,6 @@ Link	Pacific/Chuuk		Pacific/Truk
  Link	Pacific/Chuuk		Pacific/Yap
  Link	Europe/Warsaw		Poland
  Link	Europe/Lisbon		Portugal

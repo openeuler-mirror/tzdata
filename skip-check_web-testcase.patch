@@ -14,7 +14,7 @@ diff --git a/Makefile b/Makefile
 index 1136af9..5ccad33 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -747,7 +747,7 @@ tzselect:	tzselect.ksh version
+@@ -756,7 +756,7 @@ tzselect:	tzselect.ksh version
  
  check:		check_character_set check_white_space check_links \
  		  check_name_lengths check_sorted \
