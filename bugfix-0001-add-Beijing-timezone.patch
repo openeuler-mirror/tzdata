@@ -15,7 +15,7 @@ diff --git a/backward b/backward
 index e13ae52..348f99e 100644
 --- a/backward
 +++ b/backward
-@@ -101,7 +101,7 @@ Link	America/Mexico_City	Mexico/General
+@@ -104,7 +104,7 @@ Link	America/Mexico_City	Mexico/General
  Link	Pacific/Auckland	NZ
  Link	Pacific/Chatham		NZ-CHAT
  Link	America/Denver		Navajo
@@ -28,7 +28,7 @@ diff --git a/zone.tab b/zone.tab
 index 8d056e3..cfd90aa 100644
 --- a/zone.tab
 +++ b/zone.tab
-@@ -145,7 +145,8 @@ CL	-3327-07040	America/Santiago	Chile (most areas)
+@@ -147,7 +147,8 @@ CL	-3327-07040	America/Santiago	Chile (most areas)
  CL	-5309-07055	America/Punta_Arenas	Region of Magallanes
  CL	-2709-10926	Pacific/Easter	Easter Island
  CM	+0403+00942	Africa/Douala
@@ -42,7 +42,7 @@ diff --git a/zone1970.tab b/zone1970.tab
 index 53ee77e..3d21c92 100644
 --- a/zone1970.tab
 +++ b/zone1970.tab
-@@ -137,7 +137,8 @@ CK	-2114-15946	Pacific/Rarotonga
+@@ -130,7 +130,8 @@ CK	-2114-15946	Pacific/Rarotonga
  CL	-3327-07040	America/Santiago	Chile (most areas)
  CL	-5309-07055	America/Punta_Arenas	Region of Magallanes
  CL	-2709-10926	Pacific/Easter	Easter Island

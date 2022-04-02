@@ -1,5 +1,5 @@
 Name:		tzdata
-Version:	2021e
+Version:	2022a
 Release:	1
 Summary:	Timezone data
 License:	Public Domain
@@ -13,8 +13,6 @@ Patch9000:	bugfix-0001-add-Beijing-timezone.patch
 Patch9001:	remove-country-selection-from-tzselect-steps.patch
 Patch9002:	remove-ROC-timezone.patch
 Patch9003:	rename-Macau-to-Macao.patch
-Patch9004:	remove-El_Aaiun-timezone.patch
-Patch9005:	remove-Israel-timezone.patch
 Patch9006:	skip-check_web-testcase.patch
 
 BuildRequires:	gawk glibc perl-interpreter
@@ -65,7 +63,7 @@ zic -y ./yearistype -d zoneinfo/posix -L /dev/null $FILES
 zic -y ./yearistype -d zoneinfo/right -L leapseconds $FILES
 
 cd javazic
-javac -source 1.5 -target 1.5 -classpath . `find . -name \*.java`
+javac -source 1.6 -target 1.6 -classpath . `find . -name \*.java`
 cd ..
 
 java -classpath javazic/ rht.tools.javazic.Main -V %{version} \
@@ -73,7 +71,7 @@ java -classpath javazic/ rht.tools.javazic.Main -V %{version} \
   $FILES javazic/tzdata_jdk/gmt javazic/tzdata_jdk/jdk11_backward
 
 cd javazic-1.8
-javac -source 1.7 -target 1.7 -classpath . `find . -name \*.java`
+javac -source 1.8 -target 1.8 -classpath . `find . -name \*.java`
 cd ..
 
 java -classpath javazic-1.8 build.tools.tzdb.TzdbZoneRulesCompiler \
@@ -82,7 +80,7 @@ java -classpath javazic-1.8 build.tools.tzdb.TzdbZoneRulesCompiler \
     $FILES javazic-1.8/tzdata_jdk/gmt javazic-1.8/tzdata_jdk/jdk11_backward
 
 %check
-make check
+make check DATAFORM=rearguard
 
 %install
 
@@ -107,6 +105,16 @@ install -p -m 644 tzdb.dat $RPM_BUILD_ROOT%{_datadir}/javazi-1.8/
 %{_datadir}/javazi-1.8
 
 %changelog
+* Fri Apr 1 2022 misaka00251 <misaka00251@misakanet.cn> - 2022a-1
+- Remove useless patches
+- Upgrade version to 2022a
+
+* Fri Feb 25 2022 liuchao<liuchao173@huawei.com> -2021e-2
+- Type:feature
+- CVE:NA
+- SUG:NA
+- DESC:update jave source to 1.6 and 1.8
+
 * Fri Oct 29 2021 liuchao<liuchao173@huawei.com> - 2021e-1
 - Type:bugfix
 - CVE:NA
